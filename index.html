@@ -3384,52 +3384,68 @@
               <span class="step-chevron" id="p2_step1_chevron">▼</span>
             </div>
             <div class="brochure-step-content" id="p2_step1_content">
-              
-              <!-- FERMÉ -->
-              <label style="margin-bottom: 0.8rem; display: block;"><strong>Fermé :</strong></label>
-              <div class="format-grid">
-                <button type="button" class="format-btn" onclick="selectPanel2Format('10 × 21 cm', 'ferme')"><strong>10 × 21</strong><br><small>cm</small></button>
-                <button type="button" class="format-btn" onclick="selectPanel2Format('10, 5 × 14,8 cm', 'ferme')"><strong>10,5 × 14,8</strong><br><small>cm</small></button>
-                <button type="button" class="format-btn" onclick="selectPanel2Format('14, 8 × 21 cm', 'ferme')"><strong>14,8 × 21</strong><br><small>cm</small></button>
-                <button type="button" class="format-btn" onclick="selectPanel2Format('21 × 29, 7 cm', 'ferme')"><strong>21 × 29,7</strong><br><small>cm</small></button>
-                <button type="button" class="format-btn" onclick="selectPanel2Format('29, 7 × 42 cm', 'ferme')"><strong>29,7 × 42</strong><br><small>cm</small></button>
-              </div>
 
-              <!-- PERSONNALISÉ FERMÉ -->
-              <div style="margin-top: 1rem; padding: 0.8rem; background: rgba(169, 150, 245, 0.1); border: 2px solid rgba(169, 150, 245, 0.3); border-radius: 0.5rem; transition: all 0.2s ease;">
-                <label style="display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 0.6rem; color: #FFFFFF;">Format personnalisé (Fermé)</label>
-                <div style="display: flex; gap: 0.8rem; align-items: center;">
-                  <input type="text" id="p2_format_ferme_custom_input" placeholder="Ex: 15 × 20 cm" style="flex: 1; padding: 0.8rem; border: 2px solid rgba(169, 150, 245, 0.3); border-radius: 0.5rem; background: rgba(255,255,255,0.05); color: #FFFFFF; font-family: DM Sans, sans-serif; outline: none;" onfocus="this.style.borderColor='rgba(169, 150, 245, 0.8)'; this.style.boxShadow='0 0 12px rgba(169, 150, 245, 0.2)'" onblur="this.style.borderColor='rgba(169, 150, 245, 0.3)'; this.style.boxShadow='none'" onkeypress="if(event.key==='Enter') document.getElementById('p2_format_ferme_btn').click();">
-                  <button type="button" id="p2_format_ferme_btn" class="grammage-btn" style="white-space: nowrap;" onclick="selectPanel2FormatCustom(document.getElementById('p2_format_ferme_custom_input').value, 'ferme')">Valider</button>
-                </div>
-                <div id="p2_format_ferme_custom_display" style="padding: 0.5rem 0.8rem; background: rgba(169, 150, 245, 0.2); border-radius: 0.3rem; display: none; margin-top: 0.6rem;">
-                  <strong style="color: #a996f5; font-size: 0.95rem;" id="p2_format_ferme_custom_preview">—</strong>
-                </div>
-              </div>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem;">
 
-              <!-- OUVERT -->
-              <label style="margin-top: 1.5rem; margin-bottom: 0.8rem; display: block;"><strong>Ouvert :</strong></label>
-              <div class="format-grid">
-                <button type="button" class="format-btn" onclick="selectPanel2Format('21 × 21 cm', 'ouvert')"><strong>21 × 21</strong><br><small>cm</small></button>
-                <button type="button" class="format-btn" onclick="selectPanel2Format('21 × 29, 7 cm', 'ouvert')"><strong>21 × 29,7</strong><br><small>cm</small></button>
-                <button type="button" class="format-btn" onclick="selectPanel2Format('29, 7 × 42 cm', 'ouvert')"><strong>29,7 × 42</strong><br><small>cm</small></button>
-                <button type="button" class="format-btn" onclick="selectPanel2Format('29, 7 × 63 cm', 'ouvert')"><strong>29,7 × 63</strong><br><small>cm</small></button>
-                <button type="button" class="format-btn" onclick="selectPanel2Format('59, 4 × 84,1 cm', 'ouvert')"><strong>59,4 × 84,1</strong><br><small>cm</small></button>
-              </div>
+                <!-- COLONNE FERMÉ -->
+                <div>
+                  <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem;">
+                    <span style="width: 24px; height: 24px; border-radius: 50%; background: rgba(169,150,245,0.15); border: 2px solid #a996f5; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem; color: #a996f5; flex-shrink: 0;">1</span>
+                    <strong style="text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.9rem; color: #FFFFFF;">Fermé</strong>
+                    <span id="p2_format_ferme_check" style="display: none; color: #00D084; font-size: 1.1rem; margin-left: auto;">✓</span>
+                  </div>
+                  <div class="format-grid" id="p2_format_ferme_grid">
+                    <button type="button" class="format-btn" onclick="selectPanel2Format('10 × 21 cm', 'ferme')"><strong>10 × 21</strong><br><small>cm</small></button>
+                    <button type="button" class="format-btn" onclick="selectPanel2Format('10, 5 × 14,8 cm', 'ferme')"><strong>10,5 × 14,8</strong><br><small>cm</small></button>
+                    <button type="button" class="format-btn" onclick="selectPanel2Format('14, 8 × 21 cm', 'ferme')"><strong>14,8 × 21</strong><br><small>cm</small></button>
+                    <button type="button" class="format-btn" onclick="selectPanel2Format('21 × 29, 7 cm', 'ferme')"><strong>21 × 29,7</strong><br><small>cm</small></button>
+                    <button type="button" class="format-btn" onclick="selectPanel2Format('29, 7 × 42 cm', 'ferme')"><strong>29,7 × 42</strong><br><small>cm</small></button>
+                  </div>
 
-              <!-- PERSONNALISÉ OUVERT -->
-              <div style="margin-top: 1rem; padding: 0.8rem; background: rgba(169, 150, 245, 0.1); border: 2px solid rgba(169, 150, 245, 0.3); border-radius: 0.5rem; transition: all 0.2s ease;">
-                <label style="display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 0.6rem; color: #FFFFFF;">Format personnalisé (Ouvert)</label>
-                <div style="display: flex; gap: 0.8rem; align-items: center;">
-                  <input type="text" id="p2_format_ouvert_custom_input" placeholder="Ex: 50 × 70 cm" style="flex: 1; padding: 0.8rem; border: 2px solid rgba(169, 150, 245, 0.3); border-radius: 0.5rem; background: rgba(255,255,255,0.05); color: #FFFFFF; font-family: DM Sans, sans-serif; outline: none;" onfocus="this.style.borderColor='rgba(169, 150, 245, 0.8)'; this.style.boxShadow='0 0 12px rgba(169, 150, 245, 0.2)'" onblur="this.style.borderColor='rgba(169, 150, 245, 0.3)'; this.style.boxShadow='none'" onkeypress="if(event.key==='Enter') document.getElementById('p2_format_ouvert_btn').click();">
-                  <button type="button" id="p2_format_ouvert_btn" class="grammage-btn" style="white-space: nowrap;" onclick="selectPanel2FormatCustom(document.getElementById('p2_format_ouvert_custom_input').value, 'ouvert')">Valider</button>
+                  <!-- PERSONNALISÉ FERMÉ -->
+                  <div style="margin-top: 1rem; padding: 0.8rem; background: rgba(169, 150, 245, 0.1); border: 2px solid rgba(169, 150, 245, 0.3); border-radius: 0.5rem; transition: all 0.2s ease;">
+                    <label style="display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 0.6rem; color: #FFFFFF;">Format personnalisé</label>
+                    <div style="display: flex; gap: 0.8rem; align-items: center;">
+                      <input type="text" id="p2_format_ferme_custom_input" placeholder="Ex: 15 × 20 cm" style="flex: 1; padding: 0.8rem; border: 2px solid rgba(169, 150, 245, 0.3); border-radius: 0.5rem; background: rgba(255,255,255,0.05); color: #FFFFFF; font-family: DM Sans, sans-serif; outline: none;" onfocus="this.style.borderColor='rgba(169, 150, 245, 0.8)'; this.style.boxShadow='0 0 12px rgba(169, 150, 245, 0.2)'" onblur="this.style.borderColor='rgba(169, 150, 245, 0.3)'; this.style.boxShadow='none'" onkeypress="if(event.key==='Enter') document.getElementById('p2_format_ferme_btn').click();">
+                      <button type="button" id="p2_format_ferme_btn" class="grammage-btn" style="white-space: nowrap;" onclick="selectPanel2FormatCustom(document.getElementById('p2_format_ferme_custom_input').value, 'ferme')">Valider</button>
+                    </div>
+                    <div id="p2_format_ferme_custom_display" style="padding: 0.5rem 0.8rem; background: rgba(169, 150, 245, 0.2); border-radius: 0.3rem; display: none; margin-top: 0.6rem;">
+                      <strong style="color: #a996f5; font-size: 0.95rem;" id="p2_format_ferme_custom_preview">—</strong>
+                    </div>
+                  </div>
+                  <input type="hidden" id="p2_format_ferme">
                 </div>
-                <div id="p2_format_ouvert_custom_display" style="padding: 0.5rem 0.8rem; background: rgba(169, 150, 245, 0.2); border-radius: 0.3rem; display: none; margin-top: 0.6rem;">
-                  <strong style="color: #a996f5; font-size: 0.95rem;" id="p2_format_ouvert_custom_preview">—</strong>
+
+                <!-- COLONNE OUVERT -->
+                <div>
+                  <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem;">
+                    <span style="width: 24px; height: 24px; border-radius: 50%; background: rgba(169,150,245,0.15); border: 2px solid #a996f5; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem; color: #a996f5; flex-shrink: 0;">2</span>
+                    <strong style="text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.9rem; color: #FFFFFF;">Ouvert</strong>
+                    <span id="p2_format_ouvert_check" style="display: none; color: #00D084; font-size: 1.1rem; margin-left: auto;">✓</span>
+                  </div>
+                  <div class="format-grid" id="p2_format_ouvert_grid">
+                    <button type="button" class="format-btn" onclick="selectPanel2Format('21 × 21 cm', 'ouvert')"><strong>21 × 21</strong><br><small>cm</small></button>
+                    <button type="button" class="format-btn" onclick="selectPanel2Format('21 × 29, 7 cm', 'ouvert')"><strong>21 × 29,7</strong><br><small>cm</small></button>
+                    <button type="button" class="format-btn" onclick="selectPanel2Format('29, 7 × 42 cm', 'ouvert')"><strong>29,7 × 42</strong><br><small>cm</small></button>
+                    <button type="button" class="format-btn" onclick="selectPanel2Format('29, 7 × 63 cm', 'ouvert')"><strong>29,7 × 63</strong><br><small>cm</small></button>
+                    <button type="button" class="format-btn" onclick="selectPanel2Format('59, 4 × 84,1 cm', 'ouvert')"><strong>59,4 × 84,1</strong><br><small>cm</small></button>
+                  </div>
+
+                  <!-- PERSONNALISÉ OUVERT -->
+                  <div style="margin-top: 1rem; padding: 0.8rem; background: rgba(169, 150, 245, 0.1); border: 2px solid rgba(169, 150, 245, 0.3); border-radius: 0.5rem; transition: all 0.2s ease;">
+                    <label style="display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 0.6rem; color: #FFFFFF;">Format personnalisé</label>
+                    <div style="display: flex; gap: 0.8rem; align-items: center;">
+                      <input type="text" id="p2_format_ouvert_custom_input" placeholder="Ex: 50 × 70 cm" style="flex: 1; padding: 0.8rem; border: 2px solid rgba(169, 150, 245, 0.3); border-radius: 0.5rem; background: rgba(255,255,255,0.05); color: #FFFFFF; font-family: DM Sans, sans-serif; outline: none;" onfocus="this.style.borderColor='rgba(169, 150, 245, 0.8)'; this.style.boxShadow='0 0 12px rgba(169, 150, 245, 0.2)'" onblur="this.style.borderColor='rgba(169, 150, 245, 0.3)'; this.style.boxShadow='none'" onkeypress="if(event.key==='Enter') document.getElementById('p2_format_ouvert_btn').click();">
+                      <button type="button" id="p2_format_ouvert_btn" class="grammage-btn" style="white-space: nowrap;" onclick="selectPanel2FormatCustom(document.getElementById('p2_format_ouvert_custom_input').value, 'ouvert')">Valider</button>
+                    </div>
+                    <div id="p2_format_ouvert_custom_display" style="padding: 0.5rem 0.8rem; background: rgba(169, 150, 245, 0.2); border-radius: 0.3rem; display: none; margin-top: 0.6rem;">
+                      <strong style="color: #a996f5; font-size: 0.95rem;" id="p2_format_ouvert_custom_preview">—</strong>
+                    </div>
+                  </div>
+                  <input type="hidden" id="p2_format_ouvert">
                 </div>
+
               </div>
-              
-              <input type="hidden" id="p2_format">
             </div>
           </div>
 
@@ -5708,45 +5724,41 @@ if (document.documentElement) {
   }
   
   function selectPanel2Format(format, type) {
-    // Retirer et ajouter active
-    document.querySelectorAll('#p2_step1 .format-btn').forEach(btn => btn.classList.remove('active'));
+    // N'effacer que les boutons de la colonne concernée (fermé ou ouvert)
+    document.querySelectorAll('#p2_format_' + type + '_grid .format-btn').forEach(btn => btn.classList.remove('active'));
     event.target.closest('.format-btn').classList.add('active');
-    
-    // Stocker
-    document.getElementById('p2_format').value = format + '|' + type;
-    document.getElementById('p2_format_ferme_val').textContent = format;
-    
-    // APPELER LA MISE À JOUR COMPLÈTE
+
+    // Stocker séparément fermé et ouvert
+    document.getElementById('p2_format_' + type).value = format;
+    document.getElementById('p2_format_' + type + '_check').style.display = 'inline';
+
+    updatePanel2FormatVal();
     updatePanel2Resume();
-    
   }
-  
+
   function selectPanel2FormatCustom(value, type) {
     if (!value || value.trim() === '') return;
-    
+
     const cleanValue = value.trim();
-    
-    // Afficher le bloc preview approprié et mettre à jour le texte
-    if (type === 'ferme') {
-      document.getElementById('p2_format_ferme_custom_preview').textContent = cleanValue;
-      document.getElementById('p2_format_ferme_custom_display').style.display = 'block';
-      document.getElementById('p2_format_ferme_custom_input').value = '';
-    } else {
-      document.getElementById('p2_format_ouvert_custom_preview').textContent = cleanValue;
-      document.getElementById('p2_format_ouvert_custom_display').style.display = 'block';
-      document.getElementById('p2_format_ouvert_custom_input').value = '';
-    }
-    
-    // Retirer active de tous les boutons
-    document.querySelectorAll('#p2_step1 .format-btn').forEach(btn => btn.classList.remove('active'));
-    
-    // Stocker
-    document.getElementById('p2_format').value = 'Personnalisé|' + cleanValue;
-    document.getElementById('p2_format_ferme_val').textContent = 'Personnalisé - ' + cleanValue;
-    
-    // APPELER LA MISE À JOUR COMPLÈTE
+
+    document.getElementById('p2_format_' + type + '_custom_preview').textContent = cleanValue;
+    document.getElementById('p2_format_' + type + '_custom_display').style.display = 'block';
+    document.getElementById('p2_format_' + type + '_custom_input').value = '';
+
+    // N'effacer que les boutons de la colonne concernée
+    document.querySelectorAll('#p2_format_' + type + '_grid .format-btn').forEach(btn => btn.classList.remove('active'));
+
+    document.getElementById('p2_format_' + type).value = 'Personnalisé - ' + cleanValue;
+    document.getElementById('p2_format_' + type + '_check').style.display = 'inline';
+
+    updatePanel2FormatVal();
     updatePanel2Resume();
-    
+  }
+
+  function updatePanel2FormatVal() {
+    const ferme = document.getElementById('p2_format_ferme').value || '—';
+    const ouvert = document.getElementById('p2_format_ouvert').value || '—';
+    document.getElementById('p2_format_ferme_val').textContent = 'Fermé ' + ferme + ' · Ouvert ' + ouvert;
   }
   
   function selectPanel2Pli(pli) {
@@ -5859,7 +5871,8 @@ if (document.documentElement) {
   function updatePanel2Resume() {
     // Lire les hidden inputs Panel 2
     const quantite = document.getElementById('p2_quantite').value || '—';
-    const format = document.getElementById('p2_format').value || '—';
+    const formatFerme = document.getElementById('p2_format_ferme').value || '—';
+    const formatOuvert = document.getElementById('p2_format_ouvert').value || '—';
     const typePli = document.getElementById('p2_type_pli').value || '—';
     const volets = document.getElementById('p2_volets').value || '—';
     const impression = document.getElementById('p2_impression').value || '—';
@@ -5869,17 +5882,7 @@ if (document.documentElement) {
     // Mettre à jour TOUS les éléments résumé
     document.getElementById('p2_resume_quantite').textContent = quantite + ' ex';
     
-    // Format : gérer le cas Personnalisé
-    let formatDisplay = '—';
-    if (format) {
-      const parts = format.split('|');
-      if (parts[1]) {
-        formatDisplay = 'Personnalisé - ' + parts[1];
-      } else if (parts[0]) {
-        formatDisplay = parts[0];
-      }
-    }
-    document.getElementById('p2_resume_format_ferme').textContent = formatDisplay;
+    document.getElementById('p2_resume_format_ferme').textContent = 'Fermé ' + formatFerme + ' · Ouvert ' + formatOuvert;
     
     document.getElementById('p2_resume_pli').textContent = typePli;
     document.getElementById('p2_resume_volets').textContent = volets;
