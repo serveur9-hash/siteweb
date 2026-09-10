@@ -3174,79 +3174,40 @@
             <div class="brochure-step-content" id="p1_step4_content">
               <label style="margin-bottom: 1rem; display: block;"><strong>Finitions :</strong></label>
               <div style="display: flex; flex-direction: column; gap: 0.8rem;">
-                
+
                 <!-- PELLICULAGE MAT -->
-                <div style="display: flex; flex-direction: row; gap: 1rem; align-items: center; justify-content: space-between;">
-                  <button type="button" class="grammage-btn" style="border-color: #00D084; flex: 1; text-align: center;" onclick="selectPanel1Finitions(this, 'Pelliculage mat')">Pelliculage mat</button>
-                  <div style="display: flex; flex-direction: row; gap: 0.6rem;">
-                    <label class="finition-checkbox-label" style="display: flex; align-items: center; gap: 0.3rem; cursor: pointer; color: #FFFFFF; margin: 0; font-size: 0.75rem;">
-                      <input type="checkbox" name="finition_pellmat_recto" onchange="updateFinitions()" style="width: 16px; height: 16px;">
-                      <span>R</span>
-                    </label>
-                    <label class="finition-checkbox-label" style="display: flex; align-items: center; gap: 0.3rem; cursor: pointer; color: #FFFFFF; margin: 0; font-size: 0.75rem;">
-                      <input type="checkbox" name="finition_pellmat_recto_verso" onchange="updateFinitions()" style="width: 16px; height: 16px;">
-                      <span>RV</span>
-                    </label>
+                <div>
+                  <button type="button" class="grammage-btn" style="border-color: #00D084; width: 100%; text-align: center;" onclick="togglePanel1Finition(this, 'pellmat', 'Pelliculage mat')">Pelliculage mat</button>
+                  <div id="p1_finition_pellmat_options" style="display: none; flex-direction: row; gap: 0.6rem; margin-top: 0.5rem;">
+                    <button type="button" class="grammage-btn finition-rv-btn" style="border-color: #00D084; flex: 1; font-size: 0.75rem; padding: 0.5rem;" onclick="selectPanel1FinitionSide(this, 'pellmat', 'Recto')">Recto</button>
+                    <button type="button" class="grammage-btn finition-rv-btn" style="border-color: #00D084; flex: 1; font-size: 0.75rem; padding: 0.5rem;" onclick="selectPanel1FinitionSide(this, 'pellmat', 'Recto verso')">Recto verso</button>
                   </div>
                 </div>
 
                 <!-- PELLICULAGE BRILLANT -->
-                <div style="display: flex; flex-direction: row; gap: 1rem; align-items: center; justify-content: space-between;">
-                  <button type="button" class="grammage-btn" style="border-color: #00D084; flex: 1; text-align: center;" onclick="selectPanel1Finitions(this, 'Pelliculage brillant')">Pelliculage brillant</button>
-                  <div style="display: flex; flex-direction: row; gap: 0.6rem;">
-                    <label class="finition-checkbox-label" style="display: flex; align-items: center; gap: 0.3rem; cursor: pointer; color: #FFFFFF; margin: 0; font-size: 0.75rem;">
-                      <input type="checkbox" name="finition_pellbril_recto" onchange="updateFinitions()" style="width: 16px; height: 16px;">
-                      <span>R</span>
-                    </label>
-                    <label class="finition-checkbox-label" style="display: flex; align-items: center; gap: 0.3rem; cursor: pointer; color: #FFFFFF; margin: 0; font-size: 0.75rem;">
-                      <input type="checkbox" name="finition_pellbril_recto_verso" onchange="updateFinitions()" style="width: 16px; height: 16px;">
-                      <span>RV</span>
-                    </label>
+                <div>
+                  <button type="button" class="grammage-btn" style="border-color: #00D084; width: 100%; text-align: center;" onclick="togglePanel1Finition(this, 'pellbril', 'Pelliculage brillant')">Pelliculage brillant</button>
+                  <div id="p1_finition_pellbril_options" style="display: none; flex-direction: row; gap: 0.6rem; margin-top: 0.5rem;">
+                    <button type="button" class="grammage-btn finition-rv-btn" style="border-color: #00D084; flex: 1; font-size: 0.75rem; padding: 0.5rem;" onclick="selectPanel1FinitionSide(this, 'pellbril', 'Recto')">Recto</button>
+                    <button type="button" class="grammage-btn finition-rv-btn" style="border-color: #00D084; flex: 1; font-size: 0.75rem; padding: 0.5rem;" onclick="selectPanel1FinitionSide(this, 'pellbril', 'Recto verso')">Recto verso</button>
+                  </div>
+                </div>
+
+                <!-- PELLICULAGE SOFT TOUCH -->
+                <div>
+                  <button type="button" class="grammage-btn" style="border-color: #00D084; width: 100%; text-align: center;" onclick="togglePanel1Finition(this, 'pellsoft', 'Pelliculage soft touch')">Pelliculage soft touch</button>
+                  <div id="p1_finition_pellsoft_options" style="display: none; flex-direction: row; gap: 0.6rem; margin-top: 0.5rem;">
+                    <button type="button" class="grammage-btn finition-rv-btn" style="border-color: #00D084; flex: 1; font-size: 0.75rem; padding: 0.5rem;" onclick="selectPanel1FinitionSide(this, 'pellsoft', 'Recto')">Recto</button>
+                    <button type="button" class="grammage-btn finition-rv-btn" style="border-color: #00D084; flex: 1; font-size: 0.75rem; padding: 0.5rem;" onclick="selectPanel1FinitionSide(this, 'pellsoft', 'Recto verso')">Recto verso</button>
                   </div>
                 </div>
 
                 <!-- VERNIS SÉLECTIF -->
-                <div style="display: flex; flex-direction: row; gap: 1rem; align-items: center; justify-content: space-between;">
-                  <button type="button" class="grammage-btn" style="border-color: #00D084; flex: 1; text-align: center;" onclick="selectPanel1Finitions(this, 'Vernis sélectif')">Vernis sélectif</button>
-                  <div style="display: flex; flex-direction: row; gap: 0.6rem;">
-                    <label class="finition-checkbox-label" style="display: flex; align-items: center; gap: 0.3rem; cursor: pointer; color: #FFFFFF; margin: 0; font-size: 0.75rem;">
-                      <input type="checkbox" name="finition_vernisselec_recto" onchange="updateFinitions()" style="width: 16px; height: 16px;">
-                      <span>R</span>
-                    </label>
-                    <label class="finition-checkbox-label" style="display: flex; align-items: center; gap: 0.3rem; cursor: pointer; color: #FFFFFF; margin: 0; font-size: 0.75rem;">
-                      <input type="checkbox" name="finition_vernisselec_recto_verso" onchange="updateFinitions()" style="width: 16px; height: 16px;">
-                      <span>RV</span>
-                    </label>
-                  </div>
-                </div>
-
-                <!-- DORURE -->
-                <div style="display: flex; flex-direction: row; gap: 1rem; align-items: center; justify-content: space-between;">
-                  <button type="button" class="grammage-btn" style="border-color: #00D084; flex: 1; text-align: center;" onclick="selectPanel1Finitions(this, 'Dorure')">Dorure</button>
-                  <div style="display: flex; flex-direction: row; gap: 0.6rem;">
-                    <label class="finition-checkbox-label" style="display: flex; align-items: center; gap: 0.3rem; cursor: pointer; color: #FFFFFF; margin: 0; font-size: 0.75rem;">
-                      <input type="checkbox" name="finition_dorure_recto" onchange="updateFinitions()" style="width: 16px; height: 16px;">
-                      <span>R</span>
-                    </label>
-                    <label class="finition-checkbox-label" style="display: flex; align-items: center; gap: 0.3rem; cursor: pointer; color: #FFFFFF; margin: 0; font-size: 0.75rem;">
-                      <input type="checkbox" name="finition_dorure_recto_verso" onchange="updateFinitions()" style="width: 16px; height: 16px;">
-                      <span>RV</span>
-                    </label>
-                  </div>
-                </div>
-
-                <!-- GAUFRAGE -->
-                <div style="display: flex; flex-direction: row; gap: 1rem; align-items: center; justify-content: space-between;">
-                  <button type="button" class="grammage-btn" style="border-color: #00D084; flex: 1; text-align: center;" onclick="selectPanel1Finitions(this, 'Gaufrage')">Gaufrage</button>
-                  <div style="display: flex; flex-direction: row; gap: 0.6rem;">
-                    <label class="finition-checkbox-label" style="display: flex; align-items: center; gap: 0.3rem; cursor: pointer; color: #FFFFFF; margin: 0; font-size: 0.75rem;">
-                      <input type="checkbox" name="finition_gaufrage_recto" onchange="updateFinitions()" style="width: 16px; height: 16px;">
-                      <span>R</span>
-                    </label>
-                    <label class="finition-checkbox-label" style="display: flex; align-items: center; gap: 0.3rem; cursor: pointer; color: #FFFFFF; margin: 0; font-size: 0.75rem;">
-                      <input type="checkbox" name="finition_gaufrage_recto_verso" onchange="updateFinitions()" style="width: 16px; height: 16px;">
-                      <span>RV</span>
-                    </label>
+                <div>
+                  <button type="button" class="grammage-btn" style="border-color: #00D084; width: 100%; text-align: center;" onclick="togglePanel1Finition(this, 'vernisselec', 'Vernis sélectif')">Vernis sélectif</button>
+                  <div id="p1_finition_vernisselec_options" style="display: none; flex-direction: row; gap: 0.6rem; margin-top: 0.5rem;">
+                    <button type="button" class="grammage-btn finition-rv-btn" style="border-color: #00D084; flex: 1; font-size: 0.75rem; padding: 0.5rem;" onclick="selectPanel1FinitionSide(this, 'vernisselec', 'Recto')">Recto</button>
+                    <button type="button" class="grammage-btn finition-rv-btn" style="border-color: #00D084; flex: 1; font-size: 0.75rem; padding: 0.5rem;" onclick="selectPanel1FinitionSide(this, 'vernisselec', 'Recto verso')">Recto verso</button>
                   </div>
                 </div>
 
@@ -6069,12 +6030,38 @@ if (document.documentElement) {
     document.getElementById('p1_resume_grammage').textContent = gramm + 'g';
   }
   
-  function selectPanel1Finitions(btn, finitions) {
-    document.querySelectorAll('#p1_step4 .papier-type-btn').forEach(b => b.classList.remove('active'));
+  const p1FinitionsState = {};
+
+  function togglePanel1Finition(btn, key, label) {
+    const optionsDiv = document.getElementById('p1_finition_' + key + '_options');
+    const isActive = btn.classList.toggle('active');
+    if (isActive) {
+      optionsDiv.style.display = 'flex';
+      optionsDiv.querySelectorAll('.finition-rv-btn').forEach(b => b.classList.remove('active'));
+      optionsDiv.querySelector('.finition-rv-btn').classList.add('active');
+      p1FinitionsState[key] = { label: label, side: 'Recto' };
+    } else {
+      optionsDiv.style.display = 'none';
+      delete p1FinitionsState[key];
+    }
+    updatePanel1Finitions();
+  }
+
+  function selectPanel1FinitionSide(btn, key, side) {
+    btn.parentElement.querySelectorAll('.finition-rv-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    document.getElementById('p1_finitions').value = finitions;
-    document.getElementById('p1_finitions_val').textContent = finitions;
-    document.getElementById('p1_resume_finitions').textContent = finitions;
+    if (p1FinitionsState[key]) {
+      p1FinitionsState[key].side = side;
+    }
+    updatePanel1Finitions();
+  }
+
+  function updatePanel1Finitions() {
+    const parts = Object.values(p1FinitionsState).map(f => f.label + ' - ' + f.side);
+    const text = parts.length ? parts.join(', ') : '—';
+    document.getElementById('p1_finitions').value = parts.join(', ');
+    document.getElementById('p1_finitions_val').textContent = text;
+    document.getElementById('p1_resume_finitions').textContent = text;
   }
   
   function updatePanel1Resume() {
