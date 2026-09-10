@@ -4229,18 +4229,6 @@
             <span>Finitions de la couverture :</span>
             <strong id="resume_finitions">—</strong>
           </div>
-          <div class="resume-item">
-            <span>Code postal :</span>
-            <strong id="resume_cp">—</strong>
-          </div>
-          <div class="resume-item">
-            <span>Ville :</span>
-            <strong id="resume_ville">—</strong>
-          </div>
-          <div class="resume-item">
-            <span>Adresse :</span>
-            <strong id="resume_adresse">—</strong>
-          </div>
         </div>
 
 
@@ -5185,12 +5173,7 @@ function updateBrochureResume() {
   
   // Quantité
   const quantite = document.getElementById('p3_quantite').value || '—';
-  
-  // Livraison
-  const cp = document.getElementById('p3_cp').value || '—';
-  const ville = document.getElementById('p3_ville').value || '—';
-  const adresse = document.getElementById('p3_adresse').value || '—';
-  
+
   // Mettre à jour affichage du RÉSUMÉ
   document.getElementById('resume_quantite').textContent = quantite + ' ex';
   document.getElementById('resume_format').textContent = format;
@@ -5201,10 +5184,7 @@ function updateBrochureResume() {
   document.getElementById('resume_total_pages').textContent = totalPages;
   document.getElementById('resume_papier_int').textContent = papierInt;
   document.getElementById('resume_finitions').textContent = finitionsText;
-  document.getElementById('resume_cp').textContent = cp;
-  document.getElementById('resume_ville').textContent = ville;
-  document.getElementById('resume_adresse').textContent = adresse;
-  
+
   // Afficher/masquer papier couverture
   if (document.getElementById('p3_couverture').value === 'Sans') {
     document.getElementById('resume_papier_couv_item').style.display = 'none';
