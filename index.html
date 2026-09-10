@@ -3063,6 +3063,9 @@
               <label style="margin-bottom: 0.8rem; display: block;"><strong>Quantité :</strong></label>
               <input type="number" id="p1_quantite_custom" min="1" placeholder="ex: 500" style="width: 100%; padding: 0.8rem; border: 2px solid rgba(0, 208, 132, 0.3); border-radius: 0.5rem; background: rgba(255,255,255,0.05); color: #FFFFFF; font-family: DM Sans, sans-serif; outline: none;" oninput="document.getElementById('p1_quantite').value = this.value; document.getElementById('p1_quantite_val').textContent = this.value ? this.value + ' ex' : '—'; document.getElementById('p1_resume_quantite').textContent = this.value ? this.value + ' ex' : '—';" onfocus="this.style.borderColor='rgba(0, 208, 132, 0.8)'; this.style.boxShadow='0 0 12px rgba(0, 208, 132, 0.2)'" onblur="this.style.borderColor='rgba(0, 208, 132, 0.3)'; this.style.boxShadow='none'">
               <input type="hidden" id="p1_quantite">
+
+              <label style="margin-top: 1rem; margin-bottom: 0.8rem; display: block;"><strong>Nombre de modèles :</strong></label>
+              <input type="number" id="p1_nb_modeles" min="1" placeholder="ex: 2" style="width: 100%; padding: 0.8rem; border: 2px solid rgba(0, 208, 132, 0.3); border-radius: 0.5rem; background: rgba(255,255,255,0.05); color: #FFFFFF; font-family: DM Sans, sans-serif; outline: none;" oninput="document.getElementById('p1_resume_nb_modeles').textContent = this.value ? this.value : '—';" onfocus="this.style.borderColor='rgba(0, 208, 132, 0.8)'; this.style.boxShadow='0 0 12px rgba(0, 208, 132, 0.2)'" onblur="this.style.borderColor='rgba(0, 208, 132, 0.3)'; this.style.boxShadow='none'">
             </div>
           </div>
 
@@ -3310,6 +3313,10 @@
               <div class="resume-item">
                 <span>Quantité :</span>
                 <strong style="color: #00D084;" id="p1_resume_quantite">—</strong>
+              </div>
+              <div class="resume-item">
+                <span>Modèles :</span>
+                <strong style="color: #00D084;" id="p1_resume_nb_modeles">—</strong>
               </div>
               <div class="resume-item">
                 <span>Format :</span>
