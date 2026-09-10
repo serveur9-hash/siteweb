@@ -2857,6 +2857,12 @@
       border-bottom: 1px solid rgba(204, 53, 200, 0.1);
     }
 
+    /* Signalétique : les photos sont quasi carrées, la vignette adopte ce format pour ne pas les recadrer trop fort */
+    [data-accordion="signaletique"] .choice-image {
+      height: auto;
+      aspect-ratio: 1 / 1;
+    }
+
     /* ─── Couleurs différentes pour les 5 premiers blocs ─── */
     .choice-item:nth-child(1) .choice-image {
       background: linear-gradient(135deg, rgba(204, 53, 200, 0.35), rgba(204, 53, 200, 0.25));
