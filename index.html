@@ -3720,13 +3720,13 @@
               <div style="display: grid; grid-template-columns: 1fr; gap: 1rem; margin-bottom: 1rem;">
                 
                 <!-- BLOC CODE POSTAL -->
-                <div style="padding: 1rem; background: rgba(169, 150, 245, 0.08); border: 2px solid rgba(169, 150, 245, 0.3); border-radius: 0.8rem;">
+                <div style="padding: 1rem; background: rgba(13,20,34,0.95); border: 2px solid rgba(169, 150, 245, 0.3); border-radius: 0.8rem;">
                   <label style="font-size: 0.85rem; color: #FFFFFF; margin-bottom: 0.6rem; display: block; font-weight: 500;">CODE POSTAL</label>
                   <input type="text" id="p2_cp" placeholder="ex : 75001" inputmode="numeric" maxlength="5" oninput="updatePanel2Resume(); if(this.value.length === 5) { lookupVille(null, 'p2'); }" onkeyup="if(this.value.length === 5) { lookupVille(null, 'p2'); }" style="width: 100%; padding: 0.8rem; border: 2px solid rgba(169, 150, 245, 0.3); border-radius: 0.5rem; background: rgba(255,255,255,0.05); color: #FFFFFF; font-family: DM Sans, sans-serif; outline: none; font-size: 1rem;">
                 </div>
                 
                 <!-- BLOC VILLE -->
-                <div style="padding: 1rem; background: rgba(169, 150, 245, 0.08); border: 2px solid rgba(169, 150, 245, 0.3); border-radius: 0.8rem;">
+                <div style="padding: 1rem; background: rgba(13,20,34,0.95); border: 2px solid rgba(169, 150, 245, 0.3); border-radius: 0.8rem;">
                   <label style="font-size: 0.85rem; color: #FFFFFF; margin-bottom: 0.6rem; display: block; font-weight: 500;">VILLE</label>
                   <div id="p2_ville_display" style="width: 100%; padding: 0.8rem; border-radius: 0.5rem; background: rgba(169, 150, 245, 0.15); color: #FFFFFF; font-family: DM Sans, sans-serif; min-height: 1.4rem; display: flex; align-items: center; font-size: 1rem;">—</div>
                   <input type="hidden" id="p2_ville">
@@ -3735,7 +3735,7 @@
               </div>
               
               <!-- LIGNE 2 : ADRESSE COMPLÈTE (PLEINE LARGEUR) -->
-              <div style="padding: 1rem; background: rgba(169, 150, 245, 0.08); border: 2px solid rgba(169, 150, 245, 0.3); border-radius: 0.8rem;">
+              <div style="padding: 1rem; background: rgba(13,20,34,0.95); border: 2px solid rgba(169, 150, 245, 0.3); border-radius: 0.8rem;">
                 <label style="font-size: 0.85rem; color: #FFFFFF; margin-bottom: 0.6rem; display: block; font-weight: 500;">ADRESSE COMPLÈTE</label>
                 <input type="text" id="p2_adresse" placeholder="ex : 42 Avenue des Champs-Élysées" oninput="updatePanel2Resume()" onchange="updatePanel2Resume()" style="width: 100%; padding: 0.8rem; border: 2px solid rgba(169, 150, 245, 0.3); border-radius: 0.5rem; background: rgba(255,255,255,0.05); color: #FFFFFF; font-family: DM Sans, sans-serif; outline: none; font-size: 1rem;">
               </div>
@@ -4214,13 +4214,13 @@
               <div style="display: grid; grid-template-columns: 1fr; gap: 1rem; margin-bottom: 1rem;">
                 
                 <!-- BLOC CODE POSTAL -->
-                <div style="padding: 1rem; background: rgba(204, 53, 200, 0.08); border: 2px solid rgba(204, 53, 200, 0.3); border-radius: 0.8rem;">
+                <div style="padding: 1rem; background: rgba(13,20,34,0.95); border: 2px solid rgba(204, 53, 200, 0.3); border-radius: 0.8rem;">
                   <label style="font-size: 0.85rem; color: #FFFFFF; margin-bottom: 0.6rem; display: block; font-weight: 500;">Code postal</label>
                   <input type="text" id="p3_cp" placeholder="ex : 75001" inputmode="numeric" maxlength="5" onkeyup="if(this.value.length === 5) { lookupVille(); }" style="width: 100%; padding: 0.8rem; border: 2px solid rgba(204, 53, 200, 0.3); border-radius: 0.5rem; background: rgba(255,255,255,0.05); color: #FFFFFF; font-family: DM Sans, sans-serif; outline: none; font-size: 1rem;">
                 </div>
                 
                 <!-- BLOC VILLE -->
-                <div style="padding: 1rem; background: rgba(204, 53, 200, 0.08); border: 2px solid rgba(204, 53, 200, 0.3); border-radius: 0.8rem;">
+                <div style="padding: 1rem; background: rgba(13,20,34,0.95); border: 2px solid rgba(204, 53, 200, 0.3); border-radius: 0.8rem;">
                   <label style="font-size: 0.85rem; color: #FFFFFF; margin-bottom: 0.6rem; display: block; font-weight: 500;">Ville</label>
                   <div id="p3_ville_display" style="width: 100%; padding: 0.8rem; border-radius: 0.5rem; background: rgba(204, 53, 200, 0.15); color: #FFFFFF; font-family: DM Sans, sans-serif; min-height: 1.4rem; display: flex; align-items: center; font-size: 1rem;">—</div>
                   <input type="hidden" id="p3_ville">
@@ -4229,7 +4229,7 @@
               </div>
               
               <!-- LIGNE 2 : ADRESSE COMPLÈTE (PLEINE LARGEUR) -->
-              <div style="padding: 1rem; background: rgba(204, 53, 200, 0.08); border: 2px solid rgba(204, 53, 200, 0.3); border-radius: 0.8rem;">
+              <div style="padding: 1rem; background: rgba(13,20,34,0.95); border: 2px solid rgba(204, 53, 200, 0.3); border-radius: 0.8rem;">
                 <label style="font-size: 0.85rem; color: #FFFFFF; margin-bottom: 0.6rem; display: block; font-weight: 500;">Adresse complète</label>
                 <input type="text" id="p3_adresse" placeholder="ex : 42 Avenue des Champs-Élysées" onchange="updateBrochureResume()" style="width: 100%; padding: 0.8rem; border: 2px solid rgba(204, 53, 200, 0.3); border-radius: 0.5rem; background: rgba(255,255,255,0.05); color: #FFFFFF; font-family: DM Sans, sans-serif; outline: none; font-size: 1rem;">
               </div>
