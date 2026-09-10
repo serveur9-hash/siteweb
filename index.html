@@ -3405,13 +3405,7 @@
                   <!-- PERSONNALISÉ FERMÉ -->
                   <div style="margin-top: 1rem; padding: 0.8rem; background: rgba(169, 150, 245, 0.1); border: 2px solid rgba(169, 150, 245, 0.3); border-radius: 0.5rem; transition: all 0.2s ease;">
                     <label style="display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 0.6rem; color: #FFFFFF;">Format personnalisé</label>
-                    <div style="display: flex; gap: 0.8rem; align-items: center;">
-                      <input type="text" id="p2_format_ferme_custom_input" placeholder="Ex: 15 × 20 cm" style="flex: 1; padding: 0.8rem; border: 2px solid rgba(169, 150, 245, 0.3); border-radius: 0.5rem; background: rgba(255,255,255,0.05); color: #FFFFFF; font-family: DM Sans, sans-serif; outline: none;" onfocus="this.style.borderColor='rgba(169, 150, 245, 0.8)'; this.style.boxShadow='0 0 12px rgba(169, 150, 245, 0.2)'" onblur="this.style.borderColor='rgba(169, 150, 245, 0.3)'; this.style.boxShadow='none'" onkeypress="if(event.key==='Enter') document.getElementById('p2_format_ferme_btn').click();">
-                      <button type="button" id="p2_format_ferme_btn" class="grammage-btn" style="white-space: nowrap;" onclick="selectPanel2FormatCustom(document.getElementById('p2_format_ferme_custom_input').value, 'ferme')">Valider</button>
-                    </div>
-                    <div id="p2_format_ferme_custom_display" style="padding: 0.5rem 0.8rem; background: rgba(169, 150, 245, 0.2); border-radius: 0.3rem; display: none; margin-top: 0.6rem;">
-                      <strong style="color: #a996f5; font-size: 0.95rem;" id="p2_format_ferme_custom_preview">—</strong>
-                    </div>
+                    <input type="text" id="p2_format_ferme_custom_input" placeholder="Ex: 15 × 20 cm" style="width: 100%; padding: 0.8rem; border: 2px solid rgba(169, 150, 245, 0.3); border-radius: 0.5rem; background: rgba(255,255,255,0.05); color: #FFFFFF; font-family: DM Sans, sans-serif; outline: none;" onfocus="this.style.borderColor='rgba(169, 150, 245, 0.8)'; this.style.boxShadow='0 0 12px rgba(169, 150, 245, 0.2)'" onblur="this.style.borderColor='rgba(169, 150, 245, 0.3)'; this.style.boxShadow='none'" oninput="updatePanel2FormatCustomLive(this, 'ferme')">
                   </div>
                   <input type="hidden" id="p2_format_ferme">
                 </div>
@@ -3434,13 +3428,7 @@
                   <!-- PERSONNALISÉ OUVERT -->
                   <div style="margin-top: 1rem; padding: 0.8rem; background: rgba(169, 150, 245, 0.1); border: 2px solid rgba(169, 150, 245, 0.3); border-radius: 0.5rem; transition: all 0.2s ease;">
                     <label style="display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 0.6rem; color: #FFFFFF;">Format personnalisé</label>
-                    <div style="display: flex; gap: 0.8rem; align-items: center;">
-                      <input type="text" id="p2_format_ouvert_custom_input" placeholder="Ex: 50 × 70 cm" style="flex: 1; padding: 0.8rem; border: 2px solid rgba(169, 150, 245, 0.3); border-radius: 0.5rem; background: rgba(255,255,255,0.05); color: #FFFFFF; font-family: DM Sans, sans-serif; outline: none;" onfocus="this.style.borderColor='rgba(169, 150, 245, 0.8)'; this.style.boxShadow='0 0 12px rgba(169, 150, 245, 0.2)'" onblur="this.style.borderColor='rgba(169, 150, 245, 0.3)'; this.style.boxShadow='none'" onkeypress="if(event.key==='Enter') document.getElementById('p2_format_ouvert_btn').click();">
-                      <button type="button" id="p2_format_ouvert_btn" class="grammage-btn" style="white-space: nowrap;" onclick="selectPanel2FormatCustom(document.getElementById('p2_format_ouvert_custom_input').value, 'ouvert')">Valider</button>
-                    </div>
-                    <div id="p2_format_ouvert_custom_display" style="padding: 0.5rem 0.8rem; background: rgba(169, 150, 245, 0.2); border-radius: 0.3rem; display: none; margin-top: 0.6rem;">
-                      <strong style="color: #a996f5; font-size: 0.95rem;" id="p2_format_ouvert_custom_preview">—</strong>
-                    </div>
+                    <input type="text" id="p2_format_ouvert_custom_input" placeholder="Ex: 50 × 70 cm" style="width: 100%; padding: 0.8rem; border: 2px solid rgba(169, 150, 245, 0.3); border-radius: 0.5rem; background: rgba(255,255,255,0.05); color: #FFFFFF; font-family: DM Sans, sans-serif; outline: none;" onfocus="this.style.borderColor='rgba(169, 150, 245, 0.8)'; this.style.boxShadow='0 0 12px rgba(169, 150, 245, 0.2)'" onblur="this.style.borderColor='rgba(169, 150, 245, 0.3)'; this.style.boxShadow='none'" oninput="updatePanel2FormatCustomLive(this, 'ouvert')">
                   </div>
                   <input type="hidden" id="p2_format_ouvert">
                 </div>
@@ -5736,20 +5724,18 @@ if (document.documentElement) {
     updatePanel2Resume();
   }
 
-  function selectPanel2FormatCustom(value, type) {
-    if (!value || value.trim() === '') return;
+  function updatePanel2FormatCustomLive(input, type) {
+    const cleanValue = input.value.trim();
 
-    const cleanValue = value.trim();
-
-    document.getElementById('p2_format_' + type + '_custom_preview').textContent = cleanValue;
-    document.getElementById('p2_format_' + type + '_custom_display').style.display = 'block';
-    document.getElementById('p2_format_' + type + '_custom_input').value = '';
-
-    // N'effacer que les boutons de la colonne concernée
-    document.querySelectorAll('#p2_format_' + type + '_grid .format-btn').forEach(btn => btn.classList.remove('active'));
-
-    document.getElementById('p2_format_' + type).value = 'Personnalisé - ' + cleanValue;
-    document.getElementById('p2_format_' + type + '_check').style.display = 'inline';
+    if (cleanValue) {
+      // N'effacer que les boutons de la colonne concernée
+      document.querySelectorAll('#p2_format_' + type + '_grid .format-btn').forEach(btn => btn.classList.remove('active'));
+      document.getElementById('p2_format_' + type).value = 'Personnalisé - ' + cleanValue;
+      document.getElementById('p2_format_' + type + '_check').style.display = 'inline';
+    } else {
+      document.getElementById('p2_format_' + type).value = '';
+      document.getElementById('p2_format_' + type + '_check').style.display = 'none';
+    }
 
     updatePanel2FormatVal();
     updatePanel2Resume();
