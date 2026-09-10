@@ -3752,22 +3752,6 @@
             <span>Finitions :</span>
             <strong style="color: #29C5C5;" id="p2_resume_finitions">—</strong>
           </div>
-          <div class="resume-item">
-            <span>Adresse :</span>
-            <strong style="color: #29C5C5;" id="p2_resume_livraison">—</strong>
-          </div>
-          <div class="resume-item">
-            <span>Société :</span>
-            <strong style="color: #29C5C5;" id="p2_resume_societe">—</strong>
-          </div>
-          <div class="resume-item">
-            <span>Nom :</span>
-            <strong style="color: #29C5C5;" id="p2_resume_nom">—</strong>
-          </div>
-          <div class="resume-item">
-            <span>Email :</span>
-            <strong style="color: #29C5C5;" id="p2_resume_email">—</strong>
-          </div>
         </div>
 
 
@@ -5911,12 +5895,7 @@ if (document.documentElement) {
     const impression = document.getElementById('p2_impression').value || '—';
     const papier = document.getElementById('p2_papier').value || '—';
     const grammage = document.getElementById('p2_grammage').value || '—';
-    const cp = document.getElementById('p2_cp').value || '—';
-    const adresse = document.getElementById('p2_adresse').value || '—';
-    const societe = document.getElementById('p2_societe').value || '—';
-    const nom = document.getElementById('p2_nom').value || '—';
-    const email = document.getElementById('p2_email').value || '—';
-    
+
     // Mettre à jour TOUS les éléments résumé
     document.getElementById('p2_resume_quantite').textContent = quantite + ' ex';
     
@@ -5937,21 +5916,10 @@ if (document.documentElement) {
     document.getElementById('p2_resume_impression').textContent = impression;
     document.getElementById('p2_resume_papier').textContent = papier;
     document.getElementById('p2_resume_grammage').textContent = grammage + (grammage !== '—' ? 'g' : '');
-    document.getElementById('p2_resume_livraison').textContent = cp + ', ' + adresse;
-    document.getElementById('p2_resume_societe').textContent = societe;
-    document.getElementById('p2_resume_nom').textContent = nom;
-    document.getElementById('p2_resume_email').textContent = email;
   }
   
   function updatePanel2Coordonnees() {
-    const societe = document.getElementById('p2_societe').value || '—';
-    const civilite = document.getElementById('p2_civilite').value || '';
-    const nom = document.getElementById('p2_nom').value || '—';
-    const email = document.getElementById('p2_email').value || '—';
-    
-    document.getElementById('p2_resume_societe').textContent = societe;
-    document.getElementById('p2_resume_nom').textContent = (civilite ? civilite + ' ' : '') + nom;
-    document.getElementById('p2_resume_email').textContent = email;
+    // Société, Nom et Email ne sont plus affichés dans "Votre devis".
   }
   
   // ===== PANEL 1 FUNCTIONS (VERT) =====
