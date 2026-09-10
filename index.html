@@ -3972,87 +3972,55 @@
               <span class="step-value" id="p3_finitions_val">—</span> <span class="step-chevron" id="p3_finitions_val_chevron">▼</span>
             </div>
             <div class="brochure-step-content" id="p3_step8_content">
-              <label style="margin-bottom: 1.2rem; display: block;"><strong>Finitions de la couverture :</strong></label>
-              
-              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1.2rem;">
-                
+              <label style="margin-bottom: 1rem; display: block;"><strong>Finitions de la couverture :</strong></label>
+              <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+
                 <!-- PELLICULAGE MAT -->
-                <div style="text-align: center;">
-                  <div style="display: flex; flex-direction: row; gap: 0.4rem; align-items: center; justify-content: center;">
-                    <button type="button" class="grammage-btn" id="btn_finition_pellmat" onclick="toggleFinitionBtn('pellmat')" style="flex: 1;">Pelliculage mat</button>
-                    <label class="finition-checkbox-label" style="display: flex; align-items: center; gap: 0.3rem; cursor: pointer; color: #FFFFFF; margin: 0; font-size: 0.65rem;">
-                      <input type="checkbox" name="finition_pellmat_recto" onchange="updateFinitions()" style="width: 14px; height: 14px;">
-                      <span>R</span>
-                    </label>
-                    <label class="finition-checkbox-label" style="display: flex; align-items: center; gap: 0.3rem; cursor: pointer; color: #FFFFFF; margin: 0; font-size: 0.65rem;">
-                      <input type="checkbox" name="finition_pellmat_recto_verso" onchange="updateFinitions()" style="width: 14px; height: 14px;">
-                      <span>RV</span>
-                    </label>
+                <div>
+                  <button type="button" class="grammage-btn" style="border-color: #CC35C8; width: 100%; text-align: center;" onclick="togglePanel3Finition(this, 'pellmat', 'Pelliculage mat')">Pelliculage mat</button>
+                  <div id="p3_finition_pellmat_options" style="display: none; flex-direction: row; gap: 0.6rem; margin-top: 0.5rem;">
+                    <button type="button" class="grammage-btn finition-rv-btn" style="border-color: #CC35C8; flex: 1; font-size: 0.75rem; padding: 0.5rem;" onclick="selectPanel3FinitionSide(this, 'pellmat', 'Recto')">Recto</button>
+                    <button type="button" class="grammage-btn finition-rv-btn" style="border-color: #CC35C8; flex: 1; font-size: 0.75rem; padding: 0.5rem;" onclick="selectPanel3FinitionSide(this, 'pellmat', 'Recto verso')">Recto verso</button>
                   </div>
                 </div>
 
                 <!-- PELLICULAGE BRILLANT -->
-                <div style="text-align: center;">
-                  <div style="display: flex; flex-direction: row; gap: 0.4rem; align-items: center; justify-content: center;">
-                    <button type="button" class="grammage-btn" id="btn_finition_pellbril" onclick="toggleFinitionBtn('pellbril')" style="flex: 1;">Pelliculage brillant</button>
-                    <label class="finition-checkbox-label" style="display: flex; align-items: center; gap: 0.3rem; cursor: pointer; color: #FFFFFF; margin: 0; font-size: 0.65rem;">
-                      <input type="checkbox" name="finition_pellbril_recto" onchange="updateFinitions()" style="width: 14px; height: 14px;">
-                      <span>R</span>
-                    </label>
-                    <label class="finition-checkbox-label" style="display: flex; align-items: center; gap: 0.3rem; cursor: pointer; color: #FFFFFF; margin: 0; font-size: 0.65rem;">
-                      <input type="checkbox" name="finition_pellbril_recto_verso" onchange="updateFinitions()" style="width: 14px; height: 14px;">
-                      <span>RV</span>
-                    </label>
+                <div>
+                  <button type="button" class="grammage-btn" style="border-color: #CC35C8; width: 100%; text-align: center;" onclick="togglePanel3Finition(this, 'pellbril', 'Pelliculage brillant')">Pelliculage brillant</button>
+                  <div id="p3_finition_pellbril_options" style="display: none; flex-direction: row; gap: 0.6rem; margin-top: 0.5rem;">
+                    <button type="button" class="grammage-btn finition-rv-btn" style="border-color: #CC35C8; flex: 1; font-size: 0.75rem; padding: 0.5rem;" onclick="selectPanel3FinitionSide(this, 'pellbril', 'Recto')">Recto</button>
+                    <button type="button" class="grammage-btn finition-rv-btn" style="border-color: #CC35C8; flex: 1; font-size: 0.75rem; padding: 0.5rem;" onclick="selectPanel3FinitionSide(this, 'pellbril', 'Recto verso')">Recto verso</button>
                   </div>
                 </div>
 
-                <!-- PELLICULAGE SOFTOUCH -->
-                <div style="text-align: center;">
-                  <div style="display: flex; flex-direction: row; gap: 0.4rem; align-items: center; justify-content: center;">
-                    <button type="button" class="grammage-btn" id="btn_finition_pellsoft" onclick="toggleFinitionBtn('pellsoft')" style="flex: 1;">Pelliculage softouch</button>
-                    <label class="finition-checkbox-label" style="display: flex; align-items: center; gap: 0.3rem; cursor: pointer; color: #FFFFFF; margin: 0; font-size: 0.65rem;">
-                      <input type="checkbox" name="finition_pellsoft_recto" onchange="updateFinitions()" style="width: 14px; height: 14px;">
-                      <span>R</span>
-                    </label>
-                    <label class="finition-checkbox-label" style="display: flex; align-items: center; gap: 0.3rem; cursor: pointer; color: #FFFFFF; margin: 0; font-size: 0.65rem;">
-                      <input type="checkbox" name="finition_pellsoft_recto_verso" onchange="updateFinitions()" style="width: 14px; height: 14px;">
-                      <span>RV</span>
-                    </label>
+                <!-- PELLICULAGE SOFT TOUCH -->
+                <div>
+                  <button type="button" class="grammage-btn" style="border-color: #CC35C8; width: 100%; text-align: center;" onclick="togglePanel3Finition(this, 'pellsoft', 'Pelliculage soft touch')">Pelliculage soft touch</button>
+                  <div id="p3_finition_pellsoft_options" style="display: none; flex-direction: row; gap: 0.6rem; margin-top: 0.5rem;">
+                    <button type="button" class="grammage-btn finition-rv-btn" style="border-color: #CC35C8; flex: 1; font-size: 0.75rem; padding: 0.5rem;" onclick="selectPanel3FinitionSide(this, 'pellsoft', 'Recto')">Recto</button>
+                    <button type="button" class="grammage-btn finition-rv-btn" style="border-color: #CC35C8; flex: 1; font-size: 0.75rem; padding: 0.5rem;" onclick="selectPanel3FinitionSide(this, 'pellsoft', 'Recto verso')">Recto verso</button>
                   </div>
                 </div>
 
                 <!-- VERNIS ACRYLIQUE -->
-                <div style="text-align: center;">
-                  <div style="display: flex; flex-direction: row; gap: 0.4rem; align-items: center; justify-content: center;">
-                    <button type="button" class="grammage-btn" id="btn_finition_vernisacry" onclick="toggleFinitionBtn('vernisacry')" style="flex: 1;">Vernis acrylique</button>
-                    <label class="finition-checkbox-label" style="display: flex; align-items: center; gap: 0.3rem; cursor: pointer; color: #FFFFFF; margin: 0; font-size: 0.65rem;">
-                      <input type="checkbox" name="finition_vernisacry_recto" onchange="updateFinitions()" style="width: 14px; height: 14px;">
-                      <span>R</span>
-                    </label>
-                    <label class="finition-checkbox-label" style="display: flex; align-items: center; gap: 0.3rem; cursor: pointer; color: #FFFFFF; margin: 0; font-size: 0.65rem;">
-                      <input type="checkbox" name="finition_vernisacry_recto_verso" onchange="updateFinitions()" style="width: 14px; height: 14px;">
-                      <span>RV</span>
-                    </label>
+                <div>
+                  <button type="button" class="grammage-btn" style="border-color: #CC35C8; width: 100%; text-align: center;" onclick="togglePanel3Finition(this, 'vernisacry', 'Vernis acrylique')">Vernis acrylique</button>
+                  <div id="p3_finition_vernisacry_options" style="display: none; flex-direction: row; gap: 0.6rem; margin-top: 0.5rem;">
+                    <button type="button" class="grammage-btn finition-rv-btn" style="border-color: #CC35C8; flex: 1; font-size: 0.75rem; padding: 0.5rem;" onclick="selectPanel3FinitionSide(this, 'vernisacry', 'Recto')">Recto</button>
+                    <button type="button" class="grammage-btn finition-rv-btn" style="border-color: #CC35C8; flex: 1; font-size: 0.75rem; padding: 0.5rem;" onclick="selectPanel3FinitionSide(this, 'vernisacry', 'Recto verso')">Recto verso</button>
                   </div>
                 </div>
 
-                <!-- VERNIS SELECTIF -->
-                <div style="text-align: center;">
-                  <div style="display: flex; flex-direction: row; gap: 0.4rem; align-items: center; justify-content: center;">
-                    <button type="button" class="grammage-btn" id="btn_finition_vernisselec" onclick="toggleFinitionBtn('vernisselec')" style="flex: 1;">Vernis selectif</button>
-                    <label class="finition-checkbox-label" style="display: flex; align-items: center; gap: 0.3rem; cursor: pointer; color: #FFFFFF; margin: 0; font-size: 0.65rem;">
-                      <input type="checkbox" name="finition_vernisselec_recto" onchange="updateFinitions()" style="width: 14px; height: 14px;">
-                      <span>R</span>
-                    </label>
-                    <label class="finition-checkbox-label" style="display: flex; align-items: center; gap: 0.3rem; cursor: pointer; color: #FFFFFF; margin: 0; font-size: 0.65rem;">
-                      <input type="checkbox" name="finition_vernisselec_recto_verso" onchange="updateFinitions()" style="width: 14px; height: 14px;">
-                      <span>RV</span>
-                    </label>
+                <!-- VERNIS SÉLECTIF -->
+                <div>
+                  <button type="button" class="grammage-btn" style="border-color: #CC35C8; width: 100%; text-align: center;" onclick="togglePanel3Finition(this, 'vernisselec', 'Vernis sélectif')">Vernis sélectif</button>
+                  <div id="p3_finition_vernisselec_options" style="display: none; flex-direction: row; gap: 0.6rem; margin-top: 0.5rem;">
+                    <button type="button" class="grammage-btn finition-rv-btn" style="border-color: #CC35C8; flex: 1; font-size: 0.75rem; padding: 0.5rem;" onclick="selectPanel3FinitionSide(this, 'vernisselec', 'Recto')">Recto</button>
+                    <button type="button" class="grammage-btn finition-rv-btn" style="border-color: #CC35C8; flex: 1; font-size: 0.75rem; padding: 0.5rem;" onclick="selectPanel3FinitionSide(this, 'vernisselec', 'Recto verso')">Recto verso</button>
                   </div>
                 </div>
 
               </div>
-
               <input type="hidden" id="p3_finitions">
             </div>
           </div>
@@ -5024,48 +4992,38 @@ function selectImpressionsCouv(impression) {
   updateBrochureResume();
 }
 
-// Gestion Finitions
-// Gestion Finitions - Toggle avec boutons multi-select
-function toggleFinitionBtn(finitionId) {
-  const btn = document.getElementById(`btn_finition_${finitionId}`);
-  if (btn) {
-    btn.classList.toggle('active');
+// Gestion Finitions de la couverture (panel 3) - Toggle avec Recto/Recto verso
+const p3FinitionsState = {};
+
+function togglePanel3Finition(btn, key, label) {
+  const optionsDiv = document.getElementById('p3_finition_' + key + '_options');
+  const isActive = btn.classList.toggle('active');
+  if (isActive) {
+    optionsDiv.style.display = 'flex';
+    optionsDiv.querySelectorAll('.finition-rv-btn').forEach(b => b.classList.remove('active'));
+    optionsDiv.querySelector('.finition-rv-btn').classList.add('active');
+    p3FinitionsState[key] = { label: label, side: 'Recto' };
+  } else {
+    optionsDiv.style.display = 'none';
+    delete p3FinitionsState[key];
   }
-  updateFinitions();
+  updatePanel3Finitions();
 }
 
-function updateFinitions() {
-  const finitions = [];
-  
-  // Vérifier chaque finition
-  const finitionsData = [
-    { id: 'pellmat', label: 'Pelliculage mat', recto: 'finition_pellmat_recto', recto_verso: 'finition_pellmat_recto_verso' },
-    { id: 'pellbril', label: 'Pelliculage brillant', recto: 'finition_pellbril_recto', recto_verso: 'finition_pellbril_recto_verso' },
-    { id: 'pellsoft', label: 'Pelliculage softouch', recto: 'finition_pellsoft_recto', recto_verso: 'finition_pellsoft_recto_verso' },
-    { id: 'vernisacry', label: 'Vernis acrylique', recto: 'finition_vernisacry_recto', recto_verso: 'finition_vernisacry_recto_verso' },
-    { id: 'vernisselec', label: 'Vernis selectif', recto: 'finition_vernisselec_recto', recto_verso: 'finition_vernisselec_recto_verso' }
-  ];
+function selectPanel3FinitionSide(btn, key, side) {
+  btn.parentElement.querySelectorAll('.finition-rv-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  if (p3FinitionsState[key]) {
+    p3FinitionsState[key].side = side;
+  }
+  updatePanel3Finitions();
+}
 
-  finitionsData.forEach(data => {
-    const btn = document.getElementById(`btn_finition_${data.id}`);
-    const rectoCheckbox = document.querySelector(`input[name="${data.recto}"]`);
-    const rectoVersoCheckbox = document.querySelector(`input[name="${data.recto_verso}"]`);
-    
-    if (btn && btn.classList.contains('active')) {
-      // La finition est activée
-      if (rectoCheckbox && rectoCheckbox.checked) {
-        finitions.push(`${data.label} - Recto`);
-      }
-      if (rectoVersoCheckbox && rectoVersoCheckbox.checked) {
-        finitions.push(`${data.label} - Recto verso`);
-      }
-    }
-  });
-
-  // Mise à jour du hidden input et du résumé
-  document.getElementById('p3_finitions').value = finitions.join(', ');
-  document.getElementById('p3_finitions_val').textContent = finitions.length > 0 ? finitions.join(', ') : '—';
-  
+function updatePanel3Finitions() {
+  const parts = Object.values(p3FinitionsState).map(f => f.label + ' - ' + f.side);
+  const text = parts.length ? parts.join(', ') : '—';
+  document.getElementById('p3_finitions').value = parts.join(', ');
+  document.getElementById('p3_finitions_val').textContent = text;
   updateBrochureResume();
 }
 
@@ -6016,18 +5974,6 @@ document.addEventListener('DOMContentLoaded', () => {
       
       // Appeler la fonction
       selectPapierCouvType(type);
-    });
-  });
-  
-  // Event listeners pour STEP 8 - Checkboxes finitions (fond rose au clic)
-  document.querySelectorAll('#p3_step8 .finition-checkbox-label input[type="checkbox"]').forEach(checkbox => {
-    checkbox.addEventListener('change', function() {
-      const label = this.parentElement;
-      if (this.checked) {
-        label.classList.add('checked');
-      } else {
-        label.classList.remove('checked');
-      }
     });
   });
   
