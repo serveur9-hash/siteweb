@@ -4856,35 +4856,6 @@ document.addEventListener('input', function (e) {
 
 /* ───────────────────────── BROCHURE STEP-BY-STEP ───────────────────────── */
 
-function autoNextStep(currentStepNum) {
-  const nextStepNum = currentStepNum + 1;
-  
-  // Fermer le step courant
-  const currentStep = document.getElementById(`p3_step${currentStepNum}`);
-  if (currentStep) {
-    currentStep.classList.remove('active');
-  }
-  
-  // Ouvrir le step suivant
-  const nextStep = document.getElementById(`p3_step${nextStepNum}`);
-  if (nextStep) {
-    nextStep.classList.add('active');
-    
-    // Scroll vers le HEADER du step suivant
-    const stepWrapper = nextStep.closest('.brochure-step');
-    if (stepWrapper) {
-      const stepHeader = stepWrapper.querySelector('.brochure-step-header');
-      if (stepHeader) {
-        setTimeout(() => {
-          stepHeader.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          // Ajouter un petit padding en haut pour mieux voir
-          window.scrollBy(0, -20);
-        }, 100);
-      }
-    }
-  }
-}
-
 function toggleBrochureStep(stepNum, panel = 3) {
   const stepContainerId = `p${panel}_step${stepNum}`;
   const stepContainer = document.getElementById(stepContainerId);
@@ -4928,7 +4899,6 @@ function selectQuantite(quantite) {
   event.target.classList.add('active');
   
   updateBrochureResume();
-  autoNextStep(0); // Fermer step 0 et ouvrir step 1
 }
 
 function selectQuantiteCustom(quantite) {
@@ -4954,7 +4924,6 @@ function selectQuantiteCustom(quantite) {
   document.querySelectorAll('#p3_step0 .grammage-btn').forEach(btn => btn.classList.remove('active'));
   
   updateBrochureResume();
-  autoNextStep(0); // Fermer step 0 et ouvrir step 1
 }
 
 // Gestion Transport
@@ -4971,7 +4940,6 @@ function selectBrochureFormat(format, dims) {
   document.getElementById('p3_format_custom_input').value = '';
   
   updateBrochureResume();
-  autoNextStep(1); // Fermer step 1 et ouvrir step 2
 }
 
 // Fonction pour gérer le format personnalisé
@@ -5006,7 +4974,6 @@ function selectBrochureFormatCustom(customValue) {
   
   // 5️⃣ METTRE À JOUR LE RÉSUMÉ
   updateBrochureResume();
-  autoNextStep(1); // Fermer step 1 et ouvrir step 2
 }
 
 function selectBrochureOrientation(orientation) {
@@ -5017,7 +4984,6 @@ function selectBrochureOrientation(orientation) {
   event.target.closest('.orientation-btn').classList.add('active');
   
   updateBrochureResume();
-  autoNextStep(2); // Fermer step 2 et ouvrir step 3
 }
 
 function selectBrochureReliure(reliure, displayText) {
@@ -5028,7 +4994,6 @@ function selectBrochureReliure(reliure, displayText) {
   event.target.closest('.reliure-btn').classList.add('active');
   
   updateBrochureResume();
-  autoNextStep(3); // Fermer step 3 et ouvrir step 4
 }
 
 function selectCouverture(type) {
@@ -5051,7 +5016,6 @@ function selectCouverture(type) {
   }
   
   updateBrochureResume();
-  autoNextStep(3); // Fermer step 4 et ouvrir step 5
 }
 
 function selectPages(num) {
@@ -5065,7 +5029,6 @@ function selectPages(num) {
   }
   
   updateBrochureResume();
-  autoNextStep(5); // Fermer step 5 et ouvrir step 6
 }
 
 // Gestion Type de papier intérieur
@@ -5098,7 +5061,6 @@ function selectPapierIntCustom(customType) {
   
   updateBrochureResume();
   
-  autoNextStep(6);
 }
 
 function selectGrammageInt(grammage) {
@@ -5171,7 +5133,6 @@ function selectPapierCouvCustom(customType) {
   
   updateBrochureResume();
   
-  autoNextStep(7);
 }
 
 function selectGrammageCouv(grammage) {
@@ -5205,7 +5166,6 @@ function selectImpressionsInt(impression) {
   event.target.classList.add('active');
   
   updateBrochureResume();
-  autoNextStep(6); // Fermer step 6 et ouvrir step 7
 }
 
 // Gestion Impressions papier couverture
@@ -5219,7 +5179,6 @@ function selectImpressionsCouv(impression) {
   event.target.classList.add('active');
   
   updateBrochureResume();
-  autoNextStep(7); // Fermer step 7 et ouvrir step 8
 }
 
 // Gestion Finitions
@@ -5888,7 +5847,6 @@ if (document.documentElement) {
     document.getElementById('p2_quantite').value = value;
     document.getElementById('p2_quantite_val').textContent = value + ' ex';
     document.getElementById('p2_resume_quantite').textContent = value + ' ex';
-    autoNextStepPanel2(0);
   }
   
   function selectQuantiteCustomPanel2(value) {
@@ -5898,7 +5856,6 @@ if (document.documentElement) {
     document.getElementById('p2_resume_quantite').textContent = value + ' ex';
     document.getElementById('p2_quantite_custom_display').style.display = 'block';
     document.getElementById('p2_quantite_custom_preview').textContent = value + ' ex';
-    autoNextStepPanel2(0);
   }
   
   function selectPanel2Format(format, type) {
@@ -5913,7 +5870,6 @@ if (document.documentElement) {
     // APPELER LA MISE À JOUR COMPLÈTE
     updatePanel2Resume();
     
-    autoNextStepPanel2(1);
   }
   
   function selectPanel2FormatCustom(value, type) {
@@ -5942,7 +5898,6 @@ if (document.documentElement) {
     // APPELER LA MISE À JOUR COMPLÈTE
     updatePanel2Resume();
     
-    autoNextStepPanel2(1);
   }
   
   function selectPanel2Pli(pli) {
@@ -5961,7 +5916,6 @@ if (document.documentElement) {
     document.getElementById('p2_volets').value = volets;
     document.getElementById('p2_resume_volets').textContent = volets;
     updatePanel2PliVolets();
-    autoNextStepPanel2(2);
   }
   
   function updatePanel2PliVolets() {
@@ -5978,7 +5932,6 @@ if (document.documentElement) {
     document.getElementById('p2_impression').value = impression;
     document.getElementById('p2_impression_val').textContent = impression;
     document.getElementById('p2_resume_impression').textContent = impression;
-    autoNextStepPanel2(3);
   }
   
   function selectPanel2PapierType(btn, papier) {
@@ -6018,7 +5971,6 @@ if (document.documentElement) {
     document.getElementById('p2_grammage').value = value;
     document.getElementById('p2_grammage_val').textContent = 'Personnalisé - ' + value;
     document.getElementById('p2_resume_grammage').textContent = 'Personnalisé - ' + value;
-    autoNextStepPanel2(4);
   }
   
   function selectPanel2Finitions(btn, finitions) {
@@ -6089,7 +6041,6 @@ if (document.documentElement) {
     document.getElementById('p1_quantite_val').textContent = value + ' ex';
     document.getElementById('p1_resume_quantite').textContent = value + ' ex';
     document.getElementById('p1_quantite_custom').value = '';
-    toggleBrochureStep(1, 1);
   }
   
   function selectPanel1Format(format) {
@@ -6099,9 +6050,8 @@ if (document.documentElement) {
     document.getElementById('p1_format_val').textContent = format;
     document.getElementById('p1_resume_format').textContent = format;
     document.getElementById('p1_format_custom_input').value = '';
-    toggleBrochureStep(2, 1);  // Passer à step 2 Impression
   }
-  
+
   function selectPanel1FormatCustom(value) {
     if (!value || value.trim() === '') return;
     const cleanValue = value.trim();
@@ -6112,7 +6062,6 @@ if (document.documentElement) {
     document.getElementById('p1_format').value = 'Personnalisé|' + cleanValue;
     document.getElementById('p1_format_val').textContent = 'Personnalisé - ' + cleanValue;
     document.getElementById('p1_resume_format').textContent = 'Personnalisé - ' + cleanValue;
-    toggleBrochureStep(2, 1);  // Passer à step 2 Impression
   }
   
   function selectPanel1Impression(impression) {
@@ -6121,7 +6070,6 @@ if (document.documentElement) {
     document.getElementById('p1_impression').value = impression;
     document.getElementById('p1_impression_val').textContent = impression;
     document.getElementById('p1_resume_impression').textContent = impression;
-    toggleBrochureStep(3, 1);  // Passer à step 3 Papier & Grammage
   }
   
   function selectPanel1Papier(btn, papier) {
@@ -6177,13 +6125,6 @@ if (document.documentElement) {
   // ===== PANEL 2 FUNCTIONS =====
   function submitPanel2Form() {
     alert('Demande de devis envoyée pour dépliant!');
-  }
-  
-  function autoNextStepPanel2(stepNum) {
-    if (stepNum < 9) {
-      const nextStep = document.getElementById('p2_step' + (stepNum + 1));
-      if (nextStep) nextStep.classList.add('active');
-    }
   }
   
 document.addEventListener('DOMContentLoaded', () => {
