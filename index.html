@@ -3329,23 +3329,6 @@
                 <span>Finitions :</span>
                 <strong style="color: #00D084;" id="p1_resume_finitions">—</strong>
               </div>
-              <div class="resume-item">
-                <span>Adresse :</span>
-                <strong style="color: #00D084;" id="p1_resume_livraison">—</strong>
-              </div>
-              <hr style="border: none; border-top: 1px solid rgba(0, 208, 132, 0.2); margin: 1rem 0;">
-              <div class="resume-item">
-                <span>Société :</span>
-                <strong style="color: #00D084;" id="p1_resume_societe">—</strong>
-              </div>
-              <div class="resume-item">
-                <span>Nom :</span>
-                <strong style="color: #00D084;" id="p1_resume_nom">—</strong>
-              </div>
-              <div class="resume-item">
-                <span>Email :</span>
-                <strong style="color: #00D084;" id="p1_resume_email">—</strong>
-              </div>
             </div>
           </div>
         </div>
@@ -6095,17 +6078,7 @@ if (document.documentElement) {
   }
   
   function updatePanel1Resume() {
-    const societe = document.getElementById('p1_societe').value || '—';
-    const civilite = document.getElementById('p1_civilite').value || '';
-    const nom = document.getElementById('p1_nom').value || '—';
-    const email = document.getElementById('p1_email').value || '—';
-    const cp = document.getElementById('p1_cp').value || '—';
-    const adresse = document.getElementById('p1_adresse').value || '—';
-
-    document.getElementById('p1_resume_societe').textContent = societe;
-    document.getElementById('p1_resume_nom').textContent = (civilite ? civilite + ' ' : '') + nom;
-    document.getElementById('p1_resume_email').textContent = email;
-    document.getElementById('p1_resume_livraison').textContent = cp + ', ' + adresse;
+    // Société, Nom, Email et Adresse ne sont plus affichés dans "Votre devis".
   }
   
   function submitPanel1Form() {
