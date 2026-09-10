@@ -5786,17 +5786,17 @@ if (document.documentElement) {
   }
   
   function selectPanel2Pli(pli) {
-    document.querySelectorAll('#p2_step2 .grammage-btn').forEach(btn => btn.classList.remove('active'));
-    // Garder seulement les boutons "Pli" actifs, pas les volets
+    // N'effacer que les boutons "Type de pli", pas ceux de "Nombre de plis"
+    document.querySelectorAll('#p2_step2 .grammage-paliers-grid:last-of-type .grammage-btn').forEach(btn => btn.classList.remove('active'));
     event.target.closest('.grammage-btn').classList.add('active');
     document.getElementById('p2_type_pli').value = pli;
     document.getElementById('p2_resume_pli').textContent = pli;
     updatePanel2PliVolets();
   }
-  
+
   function selectPanel2Volets(volets) {
-    // Ne pas effacer les plis, seulement les volets
-    document.querySelectorAll('#p2_step2 .grammage-paliers-grid:last-of-type .grammage-btn').forEach(btn => btn.classList.remove('active'));
+    // N'effacer que les boutons "Nombre de plis", pas ceux de "Type de pli"
+    document.querySelectorAll('#p2_step2 .grammage-paliers-grid:first-of-type .grammage-btn').forEach(btn => btn.classList.remove('active'));
     event.target.closest('.grammage-btn').classList.add('active');
     document.getElementById('p2_volets').value = volets;
     document.getElementById('p2_resume_volets').textContent = volets;
