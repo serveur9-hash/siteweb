@@ -3768,15 +3768,7 @@
               <!-- BLOC DE SAISIE UNIQUE -->
               <div style="margin-top: 0.8rem; padding: 0.8rem; background: rgba(204, 53, 200, 0.1); border: 2px solid rgba(204, 53, 200, 0.3); border-radius: 0.5rem; transition: all 0.2s ease;">
                 <label style="display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 0.6rem; color: #FFFFFF;">Format personnalisé</label>
-                <div style="display: flex; gap: 0.8rem; align-items: center;">
-                  <input type="text" id="p3_format_custom_input" placeholder="Ex: 15 × 20 cm" style="flex: 1; padding: 0.8rem; border: 2px solid rgba(204, 53, 200, 0.3); border-radius: 0.5rem; background: rgba(255,255,255,0.05); color: #FFFFFF; font-family: DM Sans, sans-serif; outline: none;" onfocus="this.style.borderColor='rgba(204, 53, 200, 0.8)'; this.style.boxShadow='0 0 12px rgba(204, 53, 200, 0.2)'" onblur="this.style.borderColor='rgba(204, 53, 200, 0.3)'; this.style.boxShadow='none'" onkeypress="if(event.key==='Enter') document.getElementById('p3_format_btn').click();">
-                  <button type="button" id="p3_format_btn" class="grammage-btn" style="white-space: nowrap;" onclick="selectBrochureFormatCustom(document.getElementById('p3_format_custom_input').value)">Valider</button>
-                </div>
-                
-                <!-- Affichage du format saisi dans le même bloc -->
-                <div id="p3_format_custom_display" style="padding: 0.5rem 0.8rem; background: rgba(204, 53, 200, 0.2); border-radius: 0.3rem; display: none; margin-top: 0.6rem;">
-                  <strong style="color: #CC35C8; font-size: 0.95rem;" id="p3_format_custom_preview">—</strong>
-                </div>
+                <input type="text" id="p3_format_custom_input" placeholder="Ex: 15 × 20 cm" style="width: 100%; padding: 0.8rem; border: 2px solid rgba(204, 53, 200, 0.3); border-radius: 0.5rem; background: rgba(255,255,255,0.05); color: #FFFFFF; font-family: DM Sans, sans-serif; outline: none;" onfocus="this.style.borderColor='rgba(204, 53, 200, 0.8)'; this.style.boxShadow='0 0 12px rgba(204, 53, 200, 0.2)'" onblur="this.style.borderColor='rgba(204, 53, 200, 0.3)'; this.style.boxShadow='none'" oninput="selectBrochureFormatCustom(this.value)">
               </div>
               
               <input type="hidden" id="p3_format">
@@ -3862,8 +3854,7 @@
               <div style="margin-top: 1rem;">
                 <label style="margin-bottom: 0.6rem; display: block;">Ou saisir :</label>
                 <div style="display: flex; gap: 0.8rem; align-items: center;">
-                  <input type="number" id="p3_pages_custom" min="4" step="4" placeholder="ex: 24" style="flex: 1; padding: 0.8rem; border: 2px solid rgba(204, 53, 200, 0.3); border-radius: 0.5rem; background: rgba(255,255,255,0.05); color: #FFFFFF; font-family: DM Sans, sans-serif; outline: none;" onkeypress="if(event.key==='Enter') selectPages(parseInt(document.getElementById('p3_pages_custom').value))">
-                  <button type="button" class="grammage-btn" style="white-space: nowrap;" onclick="selectPages(parseInt(document.getElementById('p3_pages_custom').value))">Valider</button>
+                  <input type="number" id="p3_pages_custom" min="4" step="4" placeholder="ex: 24" style="flex: 1; padding: 0.8rem; border: 2px solid rgba(204, 53, 200, 0.3); border-radius: 0.5rem; background: rgba(255,255,255,0.05); color: #FFFFFF; font-family: DM Sans, sans-serif; outline: none;" oninput="if(this.value) selectPages(parseInt(this.value))">
                 </div>
               </div>
               <input type="hidden" id="p3_pages">
@@ -3889,10 +3880,7 @@
               <!-- TYPE PERSONNALISÉ -->
               <div style="margin-top: 0.8rem; padding: 0.8rem; background: rgba(204, 53, 200, 0.1); border: 2px solid rgba(204, 53, 200, 0.3); border-radius: 0.5rem; transition: all 0.2s ease;">
                 <label style="display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 0.6rem; color: #FFFFFF;">Type personnalisé</label>
-                <div style="display: flex; gap: 0.8rem; align-items: center;">
-                  <input type="text" id="p3_papier_int_custom_input" placeholder="Ex: Papier recyclé" style="flex: 1; padding: 0.8rem; border: 2px solid rgba(204, 53, 200, 0.3); border-radius: 0.5rem; background: rgba(255,255,255,0.05); color: #FFFFFF; font-family: DM Sans, sans-serif; outline: none;" onfocus="this.style.borderColor='rgba(204, 53, 200, 0.8)'; this.style.boxShadow='0 0 12px rgba(204, 53, 200, 0.2)'" onblur="this.style.borderColor='rgba(204, 53, 200, 0.3)'; this.style.boxShadow='none'" onkeypress="if(event.key==='Enter') document.getElementById('p3_papier_int_btn').click();">
-                  <button type="button" id="p3_papier_int_btn" class="grammage-btn" style="white-space: nowrap;" onclick="selectPapierIntCustom(document.getElementById('p3_papier_int_custom_input').value)">Valider</button>
-                </div>
+                <input type="text" id="p3_papier_int_custom_input" placeholder="Ex: Papier recyclé" style="width: 100%; padding: 0.8rem; border: 2px solid rgba(204, 53, 200, 0.3); border-radius: 0.5rem; background: rgba(255,255,255,0.05); color: #FFFFFF; font-family: DM Sans, sans-serif; outline: none;" onfocus="this.style.borderColor='rgba(204, 53, 200, 0.8)'; this.style.boxShadow='0 0 12px rgba(204, 53, 200, 0.2)'" onblur="this.style.borderColor='rgba(204, 53, 200, 0.3)'; this.style.boxShadow='none'" oninput="selectPapierIntCustom(this.value)">
               </div>
               
               <!-- GRAMMAGE AVEC BOUTONS PALIERS -->
@@ -3944,10 +3932,7 @@
               <!-- TYPE PERSONNALISÉ -->
               <div style="margin-top: 0.8rem; padding: 0.8rem; background: rgba(204, 53, 200, 0.1); border: 2px solid rgba(204, 53, 200, 0.3); border-radius: 0.5rem; transition: all 0.2s ease;">
                 <label style="display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 0.6rem; color: #FFFFFF;">Type personnalisé</label>
-                <div style="display: flex; gap: 0.8rem; align-items: center;">
-                  <input type="text" id="p3_papier_couv_custom_input" placeholder="Ex: Papier premium" style="flex: 1; padding: 0.8rem; border: 2px solid rgba(204, 53, 200, 0.3); border-radius: 0.5rem; background: rgba(255,255,255,0.05); color: #FFFFFF; font-family: DM Sans, sans-serif; outline: none;" onfocus="this.style.borderColor='rgba(204, 53, 200, 0.8)'; this.style.boxShadow='0 0 12px rgba(204, 53, 200, 0.2)'" onblur="this.style.borderColor='rgba(204, 53, 200, 0.3)'; this.style.boxShadow='none'" onkeypress="if(event.key==='Enter') document.getElementById('p3_papier_couv_btn').click();">
-                  <button type="button" id="p3_papier_couv_btn" class="grammage-btn" style="white-space: nowrap;" onclick="selectPapierCouvCustom(document.getElementById('p3_papier_couv_custom_input').value)">Valider</button>
-                </div>
+                <input type="text" id="p3_papier_couv_custom_input" placeholder="Ex: Papier premium" style="width: 100%; padding: 0.8rem; border: 2px solid rgba(204, 53, 200, 0.3); border-radius: 0.5rem; background: rgba(255,255,255,0.05); color: #FFFFFF; font-family: DM Sans, sans-serif; outline: none;" onfocus="this.style.borderColor='rgba(204, 53, 200, 0.8)'; this.style.boxShadow='0 0 12px rgba(204, 53, 200, 0.2)'" onblur="this.style.borderColor='rgba(204, 53, 200, 0.3)'; this.style.boxShadow='none'" oninput="selectPapierCouvCustom(this.value)">
               </div>
               
               <!-- GRAMMAGE AVEC BOUTONS PALIERS -->
@@ -4808,25 +4793,16 @@ function selectBrochureFormat(format, dims) {
 
 // Fonction pour gérer le format personnalisé
 function selectBrochureFormatCustom(customValue) {
-  const displayBlock = document.getElementById('p3_format_custom_display');
-  const previewText = document.getElementById('p3_format_custom_preview');
-  
   if (!customValue || customValue.trim() === '') {
     // Vider
     document.getElementById('p3_format').value = '';
     document.getElementById('p3_format_val').textContent = 'Sélectionner';
-    displayBlock.style.display = 'none';
-    previewText.textContent = '—';
     updateBrochureResume();
     return;
   }
-  
+
   const displayValue = customValue.trim();
-  
-  // 1️⃣ AFFICHER DANS LE BLOC DE SAISIE
-  displayBlock.style.display = 'block';
-  previewText.textContent = displayValue;
-  
+
   // 2️⃣ REMPLIR LE HIDDEN INPUT
   document.getElementById('p3_format').value = 'Personnalisé|' + displayValue;
   
@@ -4896,6 +4872,9 @@ function selectPages(num) {
 }
 
 // Gestion Type de papier intérieur
+// Variable globale pour tracker le grammage intérieur sélectionné
+let currentGrammageInt = '135';
+
 function selectPapierIntType(type) {
   document.getElementById('p3_papier_int_custom_input').value = '';
   
