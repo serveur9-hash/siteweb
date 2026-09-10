@@ -3355,9 +3355,9 @@
                 <label style="display: block; font-weight: 600; font-size: 0.85rem; margin-bottom: 0.5rem; color: #FFFFFF;">NOM <span style="color: #00D084;">*</span></label>
                 <div style="display: flex; gap: 0.6rem;">
                   <select id="p1_civilite" onchange="updatePanel1Resume()" style="flex: 0 0 auto; padding: 0.8rem; border: 2px solid rgba(0, 208, 132, 0.3); border-radius: 0.5rem; background: rgba(255,255,255,0.05); color: #FFFFFF; font-family: DM Sans, sans-serif; outline: none; cursor: pointer;">
-                    <option value="">M. ou Mme</option>
-                    <option value="M.">M.</option>
-                    <option value="Mme">Mme</option>
+                    <option value="" style="background-color: #0D1422; color: #FFFFFF;">M. ou Mme</option>
+                    <option value="M." style="background-color: #0D1422; color: #FFFFFF;">M.</option>
+                    <option value="Mme" style="background-color: #0D1422; color: #FFFFFF;">Mme</option>
                   </select>
                   <input type="text" placeholder="Nom de famille" id="p1_nom" oninput="updatePanel1Resume()" style="flex: 1; padding: 0.8rem; border: 2px solid rgba(0, 208, 132, 0.3); border-radius: 0.5rem; background: rgba(255,255,255,0.05); color: #FFFFFF; font-family: DM Sans, sans-serif; outline: none;" onfocus="this.style.borderColor='rgba(0, 208, 132, 0.8)'; this.style.boxShadow='0 0 12px rgba(0, 208, 132, 0.2)'" onblur="this.style.borderColor='rgba(0, 208, 132, 0.3)'; this.style.boxShadow='none'">
                 </div>
@@ -3796,9 +3796,9 @@
                 <label style="display: block; font-weight: 600; font-size: 0.85rem; margin-bottom: 0.5rem; color: #FFFFFF;">NOM <span style="color: #a996f5;">*</span></label>
                 <div style="display: flex; gap: 0.6rem;">
                   <select id="p2_civilite" onchange="updatePanel2Coordonnees()" style="flex: 0 0 auto; padding: 0.8rem; border: 2px solid rgba(169, 150, 245, 0.3); border-radius: 0.5rem; background: rgba(255,255,255,0.05); color: #FFFFFF; font-family: DM Sans, sans-serif; outline: none; cursor: pointer;">
-                    <option value="">—</option>
-                    <option value="M.">M.</option>
-                    <option value="Mme">Mme</option>
+                    <option value="" style="background-color: #0D1422; color: #FFFFFF;">—</option>
+                    <option value="M." style="background-color: #0D1422; color: #FFFFFF;">M.</option>
+                    <option value="Mme" style="background-color: #0D1422; color: #FFFFFF;">Mme</option>
                   </select>
                   <input type="text" placeholder="Nom de famille" id="p2_nom" oninput="updatePanel2Coordonnees()" style="flex: 1; padding: 0.8rem; border: 2px solid rgba(169, 150, 245, 0.3); border-radius: 0.5rem; background: rgba(255,255,255,0.05); color: #FFFFFF; font-family: DM Sans, sans-serif; outline: none;" onfocus="this.style.borderColor='rgba(169, 150, 245, 0.8)'; this.style.boxShadow='0 0 12px rgba(169, 150, 245, 0.2)'" onblur="this.style.borderColor='rgba(169, 150, 245, 0.3)'; this.style.boxShadow='none'">
                 </div>
@@ -4288,9 +4288,9 @@
                 <label style="display: block; font-weight: 600; font-size: 0.85rem; margin-bottom: 0.5rem; color: #FFFFFF;">NOM <span style="color: #CC35C8;">*</span></label>
                 <div style="display: flex; gap: 0.6rem;">
                   <select id="f3_civilite" style="flex: 0 0 auto; padding: 0.8rem; border: 2px solid rgba(204, 53, 200, 0.3); border-radius: 0.5rem; background: rgba(255,255,255,0.05); color: #FFFFFF; font-family: DM Sans, sans-serif; outline: none; cursor: pointer;">
-                    <option value="">—</option>
-                    <option value="M.">M.</option>
-                    <option value="Mme">Mme</option>
+                    <option value="" style="background-color: #0D1422; color: #FFFFFF;">—</option>
+                    <option value="M." style="background-color: #0D1422; color: #FFFFFF;">M.</option>
+                    <option value="Mme" style="background-color: #0D1422; color: #FFFFFF;">Mme</option>
                   </select>
                   <input type="text" placeholder="Nom de famille" id="f3_nom" style="flex: 1; padding: 0.8rem; border: 2px solid rgba(204, 53, 200, 0.3); border-radius: 0.5rem; background: rgba(255,255,255,0.05); color: #FFFFFF; font-family: DM Sans, sans-serif; outline: none;" onfocus="this.style.borderColor='rgba(204, 53, 200, 0.8)'; this.style.boxShadow='0 0 12px rgba(204, 53, 200, 0.2)'" onblur="this.style.borderColor='rgba(204, 53, 200, 0.3)'; this.style.boxShadow='none'">
                 </div>
@@ -4332,7 +4332,7 @@
           <div class="form-group-d"><label>Société <span class="req">*</span></label><input type="text" class="input-societe" placeholder="Nom de votre entreprise" id="f4_societe"></div>
           <div class="form-group-d"><label>Nom <span class="req">*</span></label>
             <div style="display:flex;gap:0.6rem;">
-              <select id="f4_civilite" style="flex:0 0 85px;"><option value="M.">M.</option><option value="Mme">Mme</option></select>
+              <select id="f4_civilite" style="flex:0 0 85px;"><option value="M." style="background-color: #0D1422; color: #FFFFFF;">M.</option><option value="Mme" style="background-color: #0D1422; color: #FFFFFF;">Mme</option></select>
               <input type="text" placeholder="Nom de famille" id="f4_nom" style="flex:1;">
             </div>
           </div>
