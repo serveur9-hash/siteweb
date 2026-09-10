@@ -3264,6 +3264,43 @@
             </div>
           </div>
 
+          <!-- STEP 5 : LIVRAISON -->
+          <div class="brochure-step" id="p1_step5">
+            <div class="brochure-step-header" onclick="toggleBrochureStep(5, 1)">
+              <span class="step-title">Livraison</span>
+              <span class="step-value" id="p1_livraison_val">—</span>
+              <span class="step-chevron" id="p1_step5_chevron">▼</span>
+            </div>
+            <div class="brochure-step-content" id="p1_step5_content">
+              <label style="margin-bottom: 1.2rem; display: block;"><strong>Adresse de livraison</strong></label>
+
+              <!-- LIGNE 1 : CODE POSTAL ET VILLE -->
+              <div style="display: grid; grid-template-columns: 1fr; gap: 1rem; margin-bottom: 1rem;">
+
+                <!-- BLOC CODE POSTAL -->
+                <div style="padding: 1rem; background: rgba(13,20,34,0.95); border: 2px solid rgba(0, 208, 132, 0.3); border-radius: 0.8rem;">
+                  <label style="font-size: 0.85rem; color: #FFFFFF; margin-bottom: 0.6rem; display: block; font-weight: 500;">CODE POSTAL</label>
+                  <input type="text" id="p1_cp" placeholder="ex : 75001" inputmode="numeric" maxlength="5" oninput="updatePanel1Resume(); if(this.value.length === 5) { lookupVille(null, 'p1'); }" onkeyup="if(this.value.length === 5) { lookupVille(null, 'p1'); }" style="width: 100%; padding: 0.8rem; border: 2px solid rgba(0, 208, 132, 0.3); border-radius: 0.5rem; background: rgba(255,255,255,0.05); color: #FFFFFF; font-family: DM Sans, sans-serif; outline: none; font-size: 1rem;">
+                </div>
+
+                <!-- BLOC VILLE -->
+                <div style="padding: 1rem; background: rgba(13,20,34,0.95); border: 2px solid rgba(0, 208, 132, 0.3); border-radius: 0.8rem;">
+                  <label style="font-size: 0.85rem; color: #FFFFFF; margin-bottom: 0.6rem; display: block; font-weight: 500;">VILLE</label>
+                  <div id="p1_ville_display" style="width: 100%; padding: 0.8rem; border-radius: 0.5rem; background: rgba(0, 208, 132, 0.15); color: #FFFFFF; font-family: DM Sans, sans-serif; min-height: 1.4rem; display: flex; align-items: center; font-size: 1rem;">—</div>
+                  <input type="hidden" id="p1_ville">
+                </div>
+
+              </div>
+
+              <!-- LIGNE 2 : ADRESSE COMPLÈTE (PLEINE LARGEUR) -->
+              <div style="padding: 1rem; background: rgba(13,20,34,0.95); border: 2px solid rgba(0, 208, 132, 0.3); border-radius: 0.8rem;">
+                <label style="font-size: 0.85rem; color: #FFFFFF; margin-bottom: 0.6rem; display: block; font-weight: 500;">ADRESSE COMPLÈTE</label>
+                <input type="text" id="p1_adresse" placeholder="ex : 42 Avenue des Champs-Élysées" oninput="updatePanel1Resume()" onchange="updatePanel1Resume()" style="width: 100%; padding: 0.8rem; border: 2px solid rgba(0, 208, 132, 0.3); border-radius: 0.5rem; background: rgba(255,255,255,0.05); color: #FFFFFF; font-family: DM Sans, sans-serif; outline: none; font-size: 1rem;">
+              </div>
+
+            </div>
+          </div>
+
         </div>
 
         <!-- DROITE : RÉSUMÉ -->
@@ -3296,6 +3333,10 @@
               <div class="resume-item">
                 <span>Finitions :</span>
                 <strong style="color: #00D084;" id="p1_resume_finitions">—</strong>
+              </div>
+              <div class="resume-item">
+                <span>Adresse :</span>
+                <strong style="color: #00D084;" id="p1_resume_livraison">—</strong>
               </div>
               <hr style="border: none; border-top: 1px solid rgba(0, 208, 132, 0.2); margin: 1rem 0;">
               <div class="resume-item">
@@ -3371,8 +3412,6 @@
         <!-- BOUTON ENVOYER -->
         <button type="button" class="grammage-btn" style="width: 100%; background: #00D084; border-color: #00D084; color: #0D1422; font-weight: 700; font-size: 0.9rem; padding: 1rem; letter-spacing: 0.05em; margin-top: 1rem;" onclick="submitPanel1Form()">ENVOYER MA DEMANDE →</button>
 
-        <input type="hidden" id="p1_cp_val">
-        <input type="hidden" id="p1_adresse_val">
       </div>
         </div>
 
@@ -5532,6 +5571,8 @@ async function lookupVille(panel, prefix = 'p3') {
       // Mettre à jour le résumé
       if (prefix === 'p2') {
         updatePanel2Resume();
+      } else if (prefix === 'p1') {
+        updatePanel1Resume();
       } else {
         updateBrochureResume();
       }
@@ -6190,10 +6231,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const civilite = document.getElementById('p1_civilite').value || '';
     const nom = document.getElementById('p1_nom').value || '—';
     const email = document.getElementById('p1_email').value || '—';
-    
+    const cp = document.getElementById('p1_cp').value || '—';
+    const adresse = document.getElementById('p1_adresse').value || '—';
+
     document.getElementById('p1_resume_societe').textContent = societe;
     document.getElementById('p1_resume_nom').textContent = (civilite ? civilite + ' ' : '') + nom;
     document.getElementById('p1_resume_email').textContent = email;
+    document.getElementById('p1_resume_livraison').textContent = cp + ', ' + adresse;
   }
   
   function submitPanel1Form() {
