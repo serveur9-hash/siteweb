@@ -3628,13 +3628,13 @@
           </div>
 
 
-      <!-- COORDONNÉES : PLEINE LARGEUR -->
-      <div style="margin-top: 2rem;">
+      <!-- COORDONNÉES : PLEINE LARGEUR (reconstruit) -->
+      <div style="margin-top: 2rem; position: relative; z-index: 2; isolation: isolate;">
         <div style="margin-bottom: 1.5rem;">
           <label style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; color: #a996f5; text-transform: uppercase; display: block; margin-bottom: 1.2rem;">VOS COORDONNÉES</label>
-          
+
           <div style="border: 2px solid #a996f5; border-radius: 0.8rem; padding: 1.2rem; background: #0D1422;">
-            
+
             <!-- LIGNE 1: SOCIÉTÉ & NOM -->
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
               <!-- SOCIÉTÉ -->
@@ -3642,7 +3642,7 @@
                 <label style="display: block; font-weight: 600; font-size: 0.85rem; margin-bottom: 0.5rem; color: #FFFFFF;">SOCIÉTÉ <span style="color: #a996f5;">*</span></label>
                 <input type="text" placeholder="Nom de votre entreprise" id="p2_societe" oninput="updatePanel2Coordonnees()" style="width: 100%; padding: 0.8rem; border: 2px solid rgba(169, 150, 245, 0.3); border-radius: 0.5rem; background: rgba(255,255,255,0.05); color: #FFFFFF; font-family: DM Sans, sans-serif; outline: none;" onfocus="this.style.borderColor='rgba(169, 150, 245, 0.8)'; this.style.boxShadow='0 0 12px rgba(169, 150, 245, 0.2)'" onblur="this.style.borderColor='rgba(169, 150, 245, 0.3)'; this.style.boxShadow='none'">
               </div>
-              
+
               <!-- NOM -->
               <div>
                 <label style="display: block; font-weight: 600; font-size: 0.85rem; margin-bottom: 0.5rem; color: #FFFFFF;">NOM <span style="color: #a996f5;">*</span></label>
@@ -3664,7 +3664,7 @@
                 <label style="display: block; font-weight: 600; font-size: 0.85rem; margin-bottom: 0.5rem; color: #FFFFFF;">EMAIL <span style="color: #a996f5;">*</span></label>
                 <input type="email" placeholder="contact@entreprise.fr" id="p2_email" oninput="updatePanel2Coordonnees()" style="width: 100%; padding: 0.8rem; border: 2px solid rgba(169, 150, 245, 0.3); border-radius: 0.5rem; background: rgba(255,255,255,0.05); color: #FFFFFF; font-family: DM Sans, sans-serif; outline: none;" onfocus="this.style.borderColor='rgba(169, 150, 245, 0.8)'; this.style.boxShadow='0 0 12px rgba(169, 150, 245, 0.2)'" onblur="this.style.borderColor='rgba(169, 150, 245, 0.3)'; this.style.boxShadow='none'">
               </div>
-              
+
               <!-- TÉLÉPHONE -->
               <div>
                 <label style="display: block; font-weight: 600; font-size: 0.85rem; margin-bottom: 0.5rem; color: #FFFFFF;">TÉLÉPHONE <span style="color: #a996f5;">*</span></label>
