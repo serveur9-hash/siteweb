@@ -5880,67 +5880,6 @@ if (document.documentElement) {
 })();
 
 // Au chargement du DOM, s'assurer du scroll
-document.addEventListener('DOMContentLoaded', () => {
-  // Initialiser Panel 1 avec .visible
-  const panel1 = document.getElementById('panel1');
-  if (panel1) {
-    panel1.classList.add('visible');
-  }
-  
-  setTimeout(() => {
-    window.scrollTo(0, 0);
-    // Réactiver le smooth scroll après le démarrage
-    document.documentElement.style.scrollBehavior = 'smooth';
-  }, 100);
-  
-  // Event listeners pour STEP 6 - Papier intérieur
-  document.querySelectorAll('#p3_step6 .papier-type-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-      const type = this.getAttribute('data-type');
-      
-      // Enlever active de tous les boutons
-      document.querySelectorAll('#p3_step6 .papier-type-btn').forEach(b => {
-        b.classList.remove('active');
-      });
-      
-      // Ajouter active au bouton cliqué
-      this.classList.add('active');
-      
-      // Appeler la fonction
-      selectPapierIntType(type);
-    });
-  });
-  
-  // Event listeners pour STEP 7 - Papier couverture
-  document.querySelectorAll('#p3_step7 .papier-type-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-      const type = this.getAttribute('data-type');
-      
-      // Enlever active de tous les boutons
-      document.querySelectorAll('#p3_step7 .papier-type-btn').forEach(b => {
-        b.classList.remove('active');
-      });
-      
-      // Ajouter active au bouton cliqué
-      this.classList.add('active');
-      
-      // Appeler la fonction
-      selectPapierCouvType(type);
-    });
-  });
-  
-  // Event listeners pour STEP 8 - Checkboxes finitions (fond rose au clic)
-  document.querySelectorAll('#p3_step8 .finition-checkbox-label input[type="checkbox"]').forEach(checkbox => {
-    checkbox.addEventListener('change', function() {
-      const label = this.parentElement;
-      if (this.checked) {
-        label.classList.add('checked');
-      } else {
-        label.classList.remove('checked');
-      }
-    });
-  });
-  
   // ===== PANEL 2 FUNCTIONS =====
   
   function selectPanel2QuantitePredefinee(value) {
@@ -5949,7 +5888,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('p2_quantite').value = value;
     document.getElementById('p2_quantite_val').textContent = value + ' ex';
     document.getElementById('p2_resume_quantite').textContent = value + ' ex';
-    autoNextStep(0);
+    autoNextStepPanel2(0);
   }
   
   function selectQuantiteCustomPanel2(value) {
@@ -5959,7 +5898,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('p2_resume_quantite').textContent = value + ' ex';
     document.getElementById('p2_quantite_custom_display').style.display = 'block';
     document.getElementById('p2_quantite_custom_preview').textContent = value + ' ex';
-    autoNextStep(0);
+    autoNextStepPanel2(0);
   }
   
   function selectPanel2Format(format, type) {
@@ -5974,7 +5913,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // APPELER LA MISE À JOUR COMPLÈTE
     updatePanel2Resume();
     
-    autoNextStep(1);
+    autoNextStepPanel2(1);
   }
   
   function selectPanel2FormatCustom(value, type) {
@@ -6003,7 +5942,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // APPELER LA MISE À JOUR COMPLÈTE
     updatePanel2Resume();
     
-    autoNextStep(1);
+    autoNextStepPanel2(1);
   }
   
   function selectPanel2Pli(pli) {
@@ -6022,7 +5961,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('p2_volets').value = volets;
     document.getElementById('p2_resume_volets').textContent = volets;
     updatePanel2PliVolets();
-    autoNextStep(2);
+    autoNextStepPanel2(2);
   }
   
   function updatePanel2PliVolets() {
@@ -6039,7 +5978,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('p2_impression').value = impression;
     document.getElementById('p2_impression_val').textContent = impression;
     document.getElementById('p2_resume_impression').textContent = impression;
-    autoNextStep(3);
+    autoNextStepPanel2(3);
   }
   
   function selectPanel2PapierType(btn, papier) {
@@ -6079,7 +6018,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('p2_grammage').value = value;
     document.getElementById('p2_grammage_val').textContent = 'Personnalisé - ' + value;
     document.getElementById('p2_resume_grammage').textContent = 'Personnalisé - ' + value;
-    autoNextStep(4);
+    autoNextStepPanel2(4);
   }
   
   function selectPanel2Finitions(btn, finitions) {
@@ -6240,12 +6179,73 @@ document.addEventListener('DOMContentLoaded', () => {
     alert('Demande de devis envoyée pour dépliant!');
   }
   
-  function autoNextStep(stepNum) {
+  function autoNextStepPanel2(stepNum) {
     if (stepNum < 9) {
       const nextStep = document.getElementById('p2_step' + (stepNum + 1));
       if (nextStep) nextStep.classList.add('active');
     }
   }
+  
+document.addEventListener('DOMContentLoaded', () => {
+  // Initialiser Panel 1 avec .visible
+  const panel1 = document.getElementById('panel1');
+  if (panel1) {
+    panel1.classList.add('visible');
+  }
+  
+  setTimeout(() => {
+    window.scrollTo(0, 0);
+    // Réactiver le smooth scroll après le démarrage
+    document.documentElement.style.scrollBehavior = 'smooth';
+  }, 100);
+  
+  // Event listeners pour STEP 6 - Papier intérieur
+  document.querySelectorAll('#p3_step6 .papier-type-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const type = this.getAttribute('data-type');
+      
+      // Enlever active de tous les boutons
+      document.querySelectorAll('#p3_step6 .papier-type-btn').forEach(b => {
+        b.classList.remove('active');
+      });
+      
+      // Ajouter active au bouton cliqué
+      this.classList.add('active');
+      
+      // Appeler la fonction
+      selectPapierIntType(type);
+    });
+  });
+  
+  // Event listeners pour STEP 7 - Papier couverture
+  document.querySelectorAll('#p3_step7 .papier-type-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const type = this.getAttribute('data-type');
+      
+      // Enlever active de tous les boutons
+      document.querySelectorAll('#p3_step7 .papier-type-btn').forEach(b => {
+        b.classList.remove('active');
+      });
+      
+      // Ajouter active au bouton cliqué
+      this.classList.add('active');
+      
+      // Appeler la fonction
+      selectPapierCouvType(type);
+    });
+  });
+  
+  // Event listeners pour STEP 8 - Checkboxes finitions (fond rose au clic)
+  document.querySelectorAll('#p3_step8 .finition-checkbox-label input[type="checkbox"]').forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+      const label = this.parentElement;
+      if (this.checked) {
+        label.classList.add('checked');
+      } else {
+        label.classList.remove('checked');
+      }
+    });
+  });
   
   // Gérer le paramètre ?tab=X venant de la page "Choisissez votre projet"
   const urlParams = new URLSearchParams(window.location.search);
