@@ -2069,9 +2069,10 @@
   }
 
   .step-value {
-    color: #CC35C8;
+    color: rgba(255, 255, 255, 0.4);
     font-weight: 600;
     margin-left: auto;
+    transition: color 0.2s ease;
   }
 
   /* ─── CHEVRON ANIMÉ ─── */
@@ -2230,8 +2231,16 @@
     color: #9B4799;
   }
 
-  #panel3 .step-value {
+  #panel3 .step-value.filled {
     color: #9B4799;
+  }
+
+  #panel1 .step-value.filled {
+    color: #00B274;
+  }
+
+  #panel2 .step-value.filled {
+    color: #a996f5;
   }
 
   #panel3 .format-btn.active,
@@ -6053,6 +6062,16 @@ if (document.documentElement) {
   }
   
 document.addEventListener('DOMContentLoaded', () => {
+  // Colore les valeurs d'étapes (step-value) uniquement une fois renseignées
+  document.querySelectorAll('.step-value').forEach(el => {
+    const updateFilled = () => {
+      const text = el.textContent.trim();
+      el.classList.toggle('filled', text !== '' && text !== '—');
+    };
+    updateFilled();
+    new MutationObserver(updateFilled).observe(el, { childList: true, characterData: true, subtree: true });
+  });
+
   // Initialiser Panel 1 avec .visible
   const panel1 = document.getElementById('panel1');
   if (panel1) {
