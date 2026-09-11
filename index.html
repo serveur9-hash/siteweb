@@ -3411,11 +3411,12 @@
         </div>
         <!-- VOTRE DEVIS : RÉCAPITULATIF AVANT ENVOI -->
         <div style="margin-top: 2rem;">
-          <div class="brochure-step" style="border-color: rgba(0, 178, 116, 0.5) !important;">
-            <div class="brochure-step-header" style="background: rgba(0, 178, 116, 0.12); border-bottom: 1px solid rgba(0, 178, 116, 0.3) !important;">
+          <div class="brochure-step" id="p1_stepResume" style="border-color: rgba(0, 178, 116, 0.5) !important;">
+            <div class="brochure-step-header" onclick="toggleBrochureStep('Resume', 1)" style="background: rgba(0, 178, 116, 0.12); border-bottom: 1px solid rgba(0, 178, 116, 0.3) !important;">
               <span class="step-title">Votre devis</span>
+              <span class="step-chevron" style="color: #00B274;">▼</span>
             </div>
-            <div class="brochure-step-content" style="display: block !important; padding: 1.2rem;">
+            <div class="brochure-step-content" style="padding: 1.2rem;">
               <div class="resume-item">
                 <span>Quantité :</span>
                 <strong style="color: #00B274;" id="p1_resume_quantite">—</strong>
@@ -3794,40 +3795,46 @@
           </div>
         </div>
         <!-- VOTRE DEVIS : RÉCAPITULATIF AVANT ENVOI -->
-        <div class="brochure-resume" style="border-color: #a996f5;">
-          <h4 style="text-align: center; color: #FFFFFF; margin: 0 0 1rem 0; font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">VOTRE DEVIS</h4>
-
-          <div class="resume-item">
-            <span>Quantité :</span>
-            <strong style="color: #29C5C5;" id="p2_resume_quantite">—</strong>
-          </div>
-          <div class="resume-item">
-            <span>Format :</span>
-            <strong style="color: #29C5C5;" id="p2_resume_format_ferme">—</strong>
-          </div>
-          <div class="resume-item">
-            <span>Type de pli :</span>
-            <strong style="color: #29C5C5;" id="p2_resume_pli">—</strong>
-          </div>
-          <div class="resume-item">
-            <span>Volets :</span>
-            <strong style="color: #29C5C5;" id="p2_resume_volets">—</strong>
-          </div>
-          <div class="resume-item">
-            <span>Impression :</span>
-            <strong style="color: #29C5C5;" id="p2_resume_impression">—</strong>
-          </div>
-          <div class="resume-item">
-            <span>Papier :</span>
-            <strong style="color: #29C5C5;" id="p2_resume_papier">—</strong>
-          </div>
-          <div class="resume-item">
-            <span>Grammage :</span>
-            <strong style="color: #29C5C5;" id="p2_resume_grammage">—</strong>
-          </div>
-          <div class="resume-item">
-            <span>Finitions :</span>
-            <strong style="color: #29C5C5;" id="p2_resume_finitions">—</strong>
+        <div style="margin-top: 2rem;">
+          <div class="brochure-step" id="p2_stepResume" style="border-color: rgba(169, 150, 245, 0.5) !important;">
+            <div class="brochure-step-header" onclick="toggleBrochureStep('Resume', 2)" style="background: rgba(169, 150, 245, 0.12); border-bottom: 1px solid rgba(169, 150, 245, 0.3) !important;">
+              <span class="step-title">Votre devis</span>
+              <span class="step-chevron" style="color: #a996f5;">▼</span>
+            </div>
+            <div class="brochure-step-content" style="padding: 1.2rem;">
+              <div class="resume-item">
+                <span>Quantité :</span>
+                <strong style="color: #29C5C5;" id="p2_resume_quantite">—</strong>
+              </div>
+              <div class="resume-item">
+                <span>Format :</span>
+                <strong style="color: #29C5C5;" id="p2_resume_format_ferme">—</strong>
+              </div>
+              <div class="resume-item">
+                <span>Type de pli :</span>
+                <strong style="color: #29C5C5;" id="p2_resume_pli">—</strong>
+              </div>
+              <div class="resume-item">
+                <span>Volets :</span>
+                <strong style="color: #29C5C5;" id="p2_resume_volets">—</strong>
+              </div>
+              <div class="resume-item">
+                <span>Impression :</span>
+                <strong style="color: #29C5C5;" id="p2_resume_impression">—</strong>
+              </div>
+              <div class="resume-item">
+                <span>Papier :</span>
+                <strong style="color: #29C5C5;" id="p2_resume_papier">—</strong>
+              </div>
+              <div class="resume-item">
+                <span>Grammage :</span>
+                <strong style="color: #29C5C5;" id="p2_resume_grammage">—</strong>
+              </div>
+              <div class="resume-item">
+                <span>Finitions :</span>
+                <strong style="color: #29C5C5;" id="p2_resume_finitions">—</strong>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -4221,47 +4228,54 @@
         </div>
         <!-- VOTRE DEVIS : RÉCAPITULATIF AVANT ENVOI -->
         <!-- DROITE : RÉSUMÉ -->
-        <div class="brochure-resume">
-          <h4>VOTRE DEVIS</h4>
-          <div class="resume-item">
-            <span>Quantité :</span>
-            <strong id="resume_quantite">—</strong>
-          </div>
-          <div class="resume-item">
-            <span>Format :</span>
-            <strong id="resume_format">—</strong>
-          </div>
-          <div class="resume-item">
-            <span>Orientation :</span>
-            <strong id="resume_orientation">—</strong>
-          </div>
-          <div class="resume-item">
-            <span>Types de reliure :</span>
-            <strong id="resume_reliure">—</strong>
-          </div>
-          <div class="resume-item">
-            <span>Couverture :</span>
-            <strong id="resume_couverture">—</strong>
-          </div>
-          <div class="resume-item">
-            <span>Pages intérieures :</span>
-            <strong id="resume_pages">—</strong>
-          </div>
-          <div class="resume-item">
-            <span>Total pages :</span>
-            <strong id="resume_total_pages">—</strong>
-          </div>
-          <div class="resume-item">
-            <span>Papier intérieur :</span>
-            <strong id="resume_papier_int">—</strong>
-          </div>
-          <div class="resume-item" id="resume_papier_couv_item" style="display:none;">
-            <span>Papier couverture :</span>
-            <strong id="resume_papier_couv">—</strong>
-          </div>
-          <div class="resume-item">
-            <span>Finitions de la couverture :</span>
-            <strong id="resume_finitions">—</strong>
+        <div style="margin-top: 2rem;">
+          <div class="brochure-step" id="p3_stepResume" style="border-color: rgba(155, 71, 153, 0.5) !important;">
+            <div class="brochure-step-header" onclick="toggleBrochureStep('Resume', 3)" style="background: rgba(155, 71, 153, 0.12); border-bottom: 1px solid rgba(155, 71, 153, 0.3) !important;">
+              <span class="step-title">Votre devis</span>
+              <span class="step-chevron" style="color: #9B4799;">▼</span>
+            </div>
+            <div class="brochure-step-content" style="padding: 1.2rem;">
+              <div class="resume-item">
+                <span>Quantité :</span>
+                <strong id="resume_quantite">—</strong>
+              </div>
+              <div class="resume-item">
+                <span>Format :</span>
+                <strong id="resume_format">—</strong>
+              </div>
+              <div class="resume-item">
+                <span>Orientation :</span>
+                <strong id="resume_orientation">—</strong>
+              </div>
+              <div class="resume-item">
+                <span>Types de reliure :</span>
+                <strong id="resume_reliure">—</strong>
+              </div>
+              <div class="resume-item">
+                <span>Couverture :</span>
+                <strong id="resume_couverture">—</strong>
+              </div>
+              <div class="resume-item">
+                <span>Pages intérieures :</span>
+                <strong id="resume_pages">—</strong>
+              </div>
+              <div class="resume-item">
+                <span>Total pages :</span>
+                <strong id="resume_total_pages">—</strong>
+              </div>
+              <div class="resume-item">
+                <span>Papier intérieur :</span>
+                <strong id="resume_papier_int">—</strong>
+              </div>
+              <div class="resume-item" id="resume_papier_couv_item" style="display:none;">
+                <span>Papier couverture :</span>
+                <strong id="resume_papier_couv">—</strong>
+              </div>
+              <div class="resume-item">
+                <span>Finitions de la couverture :</span>
+                <strong id="resume_finitions">—</strong>
+              </div>
+            </div>
           </div>
         </div>
 
