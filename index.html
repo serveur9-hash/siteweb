@@ -3867,14 +3867,6 @@
               <span class="step-value" id="p3_format_val">—</span> <span class="step-chevron" id="p3_format_val_chevron">▼</span>
             </div>
             <div class="brochure-step-content" id="p3_step1_content">
-              <div class="format-grid">
-                <button type="button" class="format-btn" data-format="A6|10,5 × 14,8 cm" onclick="selectBrochureFormat('A6', '10,5 × 14,8 cm')"><strong>A6</strong><br><small>10,5 × 14,8</small></button>
-                <button type="button" class="format-btn" data-format="DL|10 × 21 cm" onclick="selectBrochureFormat('DL', '10 × 21 cm')"><strong>DL</strong><br><small>10 × 21</small></button>
-                <button type="button" class="format-btn" data-format="A5|14,8 × 21 cm" onclick="selectBrochureFormat('A5', '14,8 × 21 cm')"><strong>A5</strong><br><small>14,8 × 21</small></button>
-                <button type="button" class="format-btn" data-format="A4|21 × 29,7 cm" onclick="selectBrochureFormat('A4', '21 × 29,7 cm')"><strong>A4</strong><br><small>21 × 29,7</small></button>
-                <button type="button" class="format-btn" data-format="21×21|21 × 21 cm" onclick="selectBrochureFormat('21×21', '21 × 21 cm')"><strong>Carré</strong><br><small>21 × 21</small></button>
-              </div>
-              
               <!-- BLOC DE SAISIE UNIQUE -->
               <div style="margin-top: 0.8rem; padding: 0.8rem; background: rgba(155, 71, 153, 0.1); border: 2px solid rgba(155, 71, 153, 0.3); border-radius: 0.5rem; transition: all 0.2s ease;">
                 <label style="display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 0.6rem; color: #FFFFFF;">Format personnalisé</label>
@@ -4854,20 +4846,6 @@ function selectQuantiteCustom(quantite) {
 }
 
 // Gestion Transport
-
-function selectBrochureFormat(format, dims) {
-  document.getElementById('p3_format').value = format + '|' + dims;
-  document.getElementById('p3_format_val').textContent = format + ' - ' + dims;
-  
-  // Activer step et afficher contenu
-  document.querySelectorAll('#p3_step1 .format-btn').forEach(btn => btn.classList.remove('active'));
-  event.target.closest('.format-btn').classList.add('active');
-  
-  // Vider l'input custom
-  document.getElementById('p3_format_custom_input').value = '';
-  
-  updateBrochureResume();
-}
 
 // Fonction pour gérer le format personnalisé
 function selectBrochureFormatCustom(customValue) {
