@@ -2723,6 +2723,96 @@
 
   <!-- Styles Accordéons -->
   <style>
+    /* ─── ONGLETS SIMPLES ─── */
+    .tabs-container {
+      max-width: 1200px;
+      margin: 0 auto 2rem;
+      padding: 0 1rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .tabs-list {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      border-bottom: 2px solid rgba(41, 197, 197, 0.2);
+      padding-bottom: 0;
+      justify-content: center;
+    }
+
+    .tab-button {
+      background: transparent;
+      border: none;
+      border-bottom: 3px solid transparent;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 1.3rem;
+      font-weight: 600;
+      padding: 1.2rem 1.8rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      position: relative;
+      letter-spacing: 0.5px;
+    }
+
+    .tab-button span {
+      display: block;
+      transition: all 0.3s ease;
+    }
+
+    .tab-button:hover span {
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+    }
+
+    .tab-button.active span {
+      text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+    }
+
+    .tab-button:hover {
+      background: rgba(41, 197, 197, 0.05);
+    }
+
+    .tab-button.active {
+      background: rgba(41, 197, 197, 0.08);
+      border-bottom-color: rgba(41, 197, 197, 0.5);
+    }
+
+    /* ─── CONTENU DES ONGLETS ─── */
+    .tabs-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    .tab-pane {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+      .tabs-list {
+        gap: 0.2rem;
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+      }
+
+      .tab-button {
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+        flex-shrink: 0;
+      }
+    }
+
     .accordion-container {
       max-width: 1100px;
       margin: 0 auto;
@@ -2949,8 +3039,34 @@
     [data-accordion="signaletique"] .choice-image,
     [data-accordion="objets-publicitaires"] .choice-image,
     [data-accordion="imprimerie"] .choice-image {
-      height: auto;
-      aspect-ratio: 1 / 1;
+      height: 260px;
+      width: 230px;
+      margin: 0 auto;
+      aspect-ratio: auto;
+    }
+    [data-accordion="imprimerie"] .choice-item {
+      width: 240px;
+      height: 260px;
+    }
+    [data-accordion="imprimerie"] .choice-content {
+      display: none;
+    }
+    [data-accordion="signaletique"] .choice-image,
+    [data-accordion="objets-publicitaires"] .choice-image,
+    [data-accordion="creation-graphique"] .choice-image,
+    [data-accordion="conseil"] .choice-image {
+      height: 140px;
+      width: 100%;
+    }
+
+    /* Force la même grille pour tous les onglets */
+    [data-accordion="imprimerie"] .accordion-grid {
+      display: grid;
+      grid-template-columns: 240px 240px 240px;
+      gap: 0.6rem;
+      max-width: fit-content;
+      margin: 0 auto;
+      padding: 1.5rem;
     }
 
     /* ─── Couleurs différentes pour les 5 premiers blocs ─── */
@@ -3104,7 +3220,34 @@
     }
   </style>
 
-  <div class="accordion-container">
+  <!-- ONGLETS SIMPLES -->
+  <div class="tabs-container">
+    <div class="tabs-list">
+      <button class="tab-button active" onclick="switchTab('imprimerie')" data-tab="imprimerie">
+        <span style="color: #CC35C8;">Imprimerie</span>
+      </button>
+      <button class="tab-button" onclick="switchTab('signaletique')" data-tab="signaletique">
+        <span style="color: #5B3FD4;">Signalétique</span>
+      </button>
+      <button class="tab-button" onclick="switchTab('objets-publicitaires')" data-tab="objets-publicitaires">
+        <span style="color: #29C5C5;">Objets Publicitaires</span>
+      </button>
+      <button class="tab-button" onclick="switchTab('creation-graphique')" data-tab="creation-graphique">
+        <span style="color: #FF9500;">Création Graphique</span>
+      </button>
+      <button class="tab-button" onclick="switchTab('conseil')" data-tab="conseil">
+        <span style="color: #FFD700;">Conseil</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- CONTENU DES ONGLETS -->
+  <div class="tabs-content">
+    <!-- Les grilles des produits s'afficheront ici -->
+  </div>
+
+  <!-- LES ACCORDIONS (masqués, utilisés comme source de données) -->
+  <div id="accordionContainer" class="accordion-container" style="display: none;">
     <!-- IMPRIMERIE -->
     <div class="accordion-item" data-accordion="imprimerie" onmouseenter="accordionHoverIn(this)" onmouseleave="accordionHoverOut()">
       <button class="accordion-header" onclick="toggleAccordion(this)">
@@ -3112,10 +3255,10 @@
         <span class="accordion-icon">▼</span>
       </button>
       <div class="accordion-content">
-        <div class="accordion-grid">
-          <div class="choice-item" style="background-color: #1a7f7f;"><div class="choice-image"><img src="images/carte_affiche.png" alt="Imprimés simples - Cartes, Affiches, Enveloppes" style="width: 100%; height: 100%; object-fit: cover; object-position: center; cursor: pointer;" onclick="showDevisTab(1)"></div><div class="choice-content"><div class="choice-name">Imprimés simples (sans pli)</div></div></div>
-          <div class="choice-item"><div class="choice-image"><img src="images/depliant_voyage.png" alt="Dépliants - Brochures de voyage" style="width: 100%; height: 100%; object-fit: cover; object-position: center; cursor: pointer;" onclick="showDevisTab(2)"></div><div class="choice-content"><div class="choice-name">Dépliants</div></div></div>
-          <div class="choice-item"><div class="choice-image"><img src="images/livre_recete.png" alt="Brochures - Livres de cuisine" style="width: 100%; height: 100%; object-fit: cover; object-position: center; cursor: pointer;" onclick="showDevisTab(3)"></div><div class="choice-content"><div class="choice-name">Brochures</div></div></div>
+        <div class="accordion-grid" style="display: grid; grid-template-columns: 240px 240px 240px; gap: 0.6rem; max-width: fit-content; margin: 0 auto; padding: 0;">
+          <div class="choice-item" style="width: 240px !important; height: 260px !important; padding: 0 !important;"><div class="choice-image"><img src="images/imprimerie_carte.webp" alt="Flyers" style="width: 100%; height: 100%; object-fit: cover; object-position: center; cursor: pointer;" onclick="showDevisTab(1)"></div><div class="choice-content"><div class="choice-name">Flyers</div></div></div>
+          <div class="choice-item" style="width: 240px !important; height: 260px !important; padding: 0 !important;"><div class="choice-image"><img src="images/imprimerie_depliants.webp" alt="Dépliants" style="width: 100%; height: 100%; object-fit: cover; object-position: center; cursor: pointer;" onclick="showDevisTab(2)"></div><div class="choice-content"><div class="choice-name">Dépliants</div></div></div>
+          <div class="choice-item" style="width: 240px !important; height: 260px !important; padding: 0 !important;"><div class="choice-image"><img src="images/imprimerie_brochure.webp" alt="Brochures" style="width: 100%; height: 100%; object-fit: cover; object-position: center; cursor: pointer;" onclick="showDevisTab(3)"></div><div class="choice-content"><div class="choice-name">Brochures</div></div></div>
         </div>
       </div>
     </div>
@@ -4808,26 +4951,64 @@ function toggleNavMenu(e) {
   menu.style.display = menu.style.display === 'none' ? 'flex' : 'none';
 }
 
-function selectNavTab(tabName) {
-  // Fermer le menu
-  document.getElementById('navProjectMenu').style.display = 'none';
-  
-  // Trouver l'accordion-item correspondant
+/* ─── Affichage des catégories en modal ─── */
+/* ─── Gestion des onglets ─── */
+function switchTab(tabName) {
+  // Masquer tous les onglets
+  const tabPanes = document.querySelectorAll('.tab-pane');
+  tabPanes.forEach(pane => pane.classList.remove('active'));
+
+  // Désactiver tous les boutons
+  const tabButtons = document.querySelectorAll('.tab-button');
+  tabButtons.forEach(btn => btn.classList.remove('active'));
+
+  // Activer le bouton cliqué
+  const activeButton = document.querySelector(`[data-tab="${tabName}"]`);
+  if (activeButton) {
+    activeButton.classList.add('active');
+  }
+
+  // Trouver l'accordion et afficher son contenu
   const accordionItem = document.querySelector(`[data-accordion="${tabName}"]`);
   if (accordionItem) {
-    const navH = document.querySelector('nav').offsetHeight;
-    const elementPosition = accordionItem.getBoundingClientRect().top + window.scrollY;
-    window.scrollTo({ top: elementPosition - navH - 40, behavior: 'smooth' });
-    
-    // Ouvrir l'onglet correspondant après le scroll
-    setTimeout(() => {
-      const tabButton = accordionItem.querySelector('.accordion-header');
-      if (tabButton) {
-        // Ajouter la classe 'active' pour ouvrir
-        tabButton.classList.add('active');
+    const accordionContent = accordionItem.querySelector('.accordion-content');
+    if (accordionContent) {
+      const tabsContent = document.querySelector('.tabs-content');
+      if (tabsContent) {
+        const tabPane = document.createElement('div');
+        tabPane.className = 'tab-pane active';
+        tabPane.innerHTML = accordionContent.innerHTML;
+        tabsContent.innerHTML = '';
+        tabsContent.appendChild(tabPane);
       }
-    }, 500);
+    }
   }
+}
+
+// Initialiser avec le premier onglet au chargement
+document.addEventListener('DOMContentLoaded', function() {
+  switchTab('imprimerie');
+});
+
+function selectNavTab(tabName) {
+  // Fermer le menu
+  const menu = document.getElementById('navProjectMenu');
+  if (menu) {
+    menu.style.display = 'none';
+  }
+
+  // Appeler switchTab pour afficher l'onglet
+  switchTab(tabName);
+
+  // Scroller vers la section "Votre Projet"
+  setTimeout(() => {
+    const tabsContainer = document.querySelector('.tabs-container');
+    if (tabsContainer) {
+      const navH = document.querySelector('nav').offsetHeight;
+      const elementPosition = tabsContainer.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: elementPosition - navH - 20, behavior: 'smooth' });
+    }
+  }, 100);
 }
 
 // Fermer le menu si on clique ailleurs
