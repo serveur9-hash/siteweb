@@ -1607,20 +1607,6 @@
   .contact-project-block label { color: #F0A500 !important; }
   .contact-project-block { padding: 1.6rem 1.7rem 1.8rem; }
 
-  /* ─── Sur mesure : parcours en 3 étapes ─── */
-  .cm-steps {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem;
-    margin: 0 0 2.4rem;
-  }
-  .cm-step { display: flex; flex-direction: column; gap: 0.6rem; }
-  .cm-step-num {
-    width: 1.9rem; height: 1.9rem; border-radius: 50%;
-    background: rgba(41,197,197,0.12); border: 1px solid rgba(41,197,197,0.4);
-    color: var(--cyan); font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 0.8rem;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .cm-step p { margin: 0; font-size: 0.82rem; color: rgba(255,255,255,0.65); line-height: 1.55; }
-
   /* ─── Sur mesure : type de projet (puces) ─── */
   .cm-chip-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.9rem 0 1.1rem; }
   .cm-chip {
@@ -1779,7 +1765,7 @@
     .nav-contact-item { padding: 0.45rem 0.7rem; font-size: 0.68rem; }
     .about-stats-row { gap: 1.8rem; }
     .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
-    .cm-steps, .cm-coords-grid { grid-template-columns: 1fr; }
+    .cm-coords-grid { grid-template-columns: 1fr; }
     .form-row, .form-row-3 { grid-template-columns: 1fr; }
     .form-row.cols-3 { grid-template-columns: 1fr; }
     .devis-form-wrapper { padding: 2rem 1.5rem; }
@@ -4627,21 +4613,6 @@
   </div>
 
   <div class="contact-glass-panel">
-
-  <div class="cm-steps fade-in">
-    <div class="cm-step">
-      <span class="cm-step-num">1</span>
-      <p>Vous décrivez votre besoin : support, dimensions, quantité, délai.</p>
-    </div>
-    <div class="cm-step">
-      <span class="cm-step-num">2</span>
-      <p>Je réponds sous 24h avec un chiffrage et des conseils techniques.</p>
-    </div>
-    <div class="cm-step">
-      <span class="cm-step-num">3</span>
-      <p>Vous validez, la production démarre.</p>
-    </div>
-  </div>
 
   <form class="contact-inner" onsubmit="handleSubmit(event)">
     <div class="form-group-d contact-project-block fade-in" style="grid-column:1/-1;">
