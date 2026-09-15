@@ -4954,6 +4954,7 @@
   <div class="footer-text">© <span id="footer-year"></span> Cyrilis — Tous droits réservés</div>
   <div class="footer-text">SIRET (Siège) : 109 496 125 00013</div>
   <a href="mentions-legales.html" class="footer-text" style="text-decoration:underline;">Mentions légales & confidentialité</a>
+  <a href="#" onclick="openCookiePreferences(); return false;" class="footer-text" style="text-decoration:underline;">Gérer les cookies</a>
   </div>
 </footer>
 
@@ -6547,6 +6548,54 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('service-worker.js').catch(() => { /* silent: site works fine without it */ });
   });
 }
+</script>
+
+<!-- ─── COOKIES: bandeau de consentement (Google Analytics) ─── -->
+<div id="cookie-banner" style="display:none; position:fixed; left:0; right:0; bottom:0; z-index:1000; background:#0D1422; border-top:1px solid rgba(41,197,197,0.25); padding:1.2rem 5vw; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem; box-shadow:0 -4px 20px rgba(0,0,0,0.3);">
+  <p style="margin:0; flex:1 1 320px; font-size:0.85rem; font-weight:300; line-height:1.6; color:rgba(255,255,255,0.85);">
+    Ce site utilise Google Analytics pour mesurer son audience. Ces cookies ne sont déposés qu'avec votre accord.
+    <a href="mentions-legales.html#confidentialite" style="color:#5DD8D8; text-decoration:underline;">En savoir plus</a>
+  </p>
+  <div style="display:flex; gap:0.7rem; flex-shrink:0;">
+    <button type="button" onclick="setCookieConsent(false)" style="padding:0.6rem 1.2rem; border-radius:4px; border:1px solid rgba(255,255,255,0.25); background:transparent; color:#fff; font-family:'DM Sans',sans-serif; font-size:0.8rem; cursor:pointer;">Refuser</button>
+    <button type="button" onclick="setCookieConsent(true)" style="padding:0.6rem 1.2rem; border-radius:4px; border:none; background:#29C5C5; color:#0D1422; font-family:'DM Sans',sans-serif; font-weight:500; font-size:0.8rem; cursor:pointer;">Accepter</button>
+  </div>
+</div>
+<script>
+  /* Remplacer par votre identifiant de mesure Google Analytics (format G-XXXXXXXXXX) */
+  const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
+
+  function loadGoogleAnalytics() {
+    if (!GA_MEASUREMENT_ID || GA_MEASUREMENT_ID.indexOf('XXXX') !== -1) return;
+    const s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', GA_MEASUREMENT_ID, { anonymize_ip: true });
+  }
+
+  function setCookieConsent(accepted) {
+    localStorage.setItem('cookie_consent', accepted ? 'accepted' : 'refused');
+    document.getElementById('cookie-banner').style.display = 'none';
+    if (accepted) loadGoogleAnalytics();
+  }
+
+  function openCookiePreferences() {
+    document.getElementById('cookie-banner').style.display = 'flex';
+  }
+
+  (function initCookieBanner() {
+    const consent = localStorage.getItem('cookie_consent');
+    if (consent === 'accepted') {
+      loadGoogleAnalytics();
+    } else if (consent !== 'refused') {
+      document.getElementById('cookie-banner').style.display = 'flex';
+    }
+  })();
 </script>
 </body>
 </html>
