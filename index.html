@@ -6562,26 +6562,23 @@ if ('serviceWorker' in navigator) {
   </div>
 </div>
 <script>
-  /* Remplacer par votre identifiant de mesure Google Analytics (format G-XXXXXXXXXX) */
-  const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
+  const GTM_CONTAINER_ID = 'GTM-P8KPRXL5';
+  let gtmLoaded = false;
 
-  function loadGoogleAnalytics() {
-    if (!GA_MEASUREMENT_ID || GA_MEASUREMENT_ID.indexOf('XXXX') !== -1) return;
-    const s = document.createElement('script');
-    s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
-    document.head.appendChild(s);
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    window.gtag = gtag;
-    gtag('js', new Date());
-    gtag('config', GA_MEASUREMENT_ID, { anonymize_ip: true });
+  function loadGoogleTagManager() {
+    if (gtmLoaded) return;
+    gtmLoaded = true;
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer',GTM_CONTAINER_ID);
   }
 
   function setCookieConsent(accepted) {
     localStorage.setItem('cookie_consent', accepted ? 'accepted' : 'refused');
     document.getElementById('cookie-banner').style.display = 'none';
-    if (accepted) loadGoogleAnalytics();
+    if (accepted) loadGoogleTagManager();
   }
 
   function openCookiePreferences() {
@@ -6591,7 +6588,7 @@ if ('serviceWorker' in navigator) {
   (function initCookieBanner() {
     const consent = localStorage.getItem('cookie_consent');
     if (consent === 'accepted') {
-      loadGoogleAnalytics();
+      loadGoogleTagManager();
     } else if (consent !== 'refused') {
       document.getElementById('cookie-banner').style.display = 'flex';
     }
