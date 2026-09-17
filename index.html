@@ -3109,9 +3109,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
     [data-accordion="signaletique"] .choice-image,
     [data-accordion="objets-publicitaires"] .choice-image,
-    [data-accordion="creation-graphique"] .choice-image,
-    [data-accordion="conseil"] .choice-image {
+    [data-accordion="creation-graphique"] .choice-image {
       height: 140px;
+      width: 100%;
+    }
+    [data-accordion="conseil"] .choice-image {
+      height: 216px;
       width: 100%;
     }
 
@@ -5049,7 +5052,7 @@ function switchTab(tabName) {
   }
 
   // Trouver l'accordion et afficher son contenu
-  const accordionItem = document.querySelector(`[data-accordion="${tabName}"]`);
+  const accordionItem = document.querySelector(`.accordion-container [data-accordion="${tabName}"]`);
   if (accordionItem) {
     const accordionContent = accordionItem.querySelector('.accordion-content');
     if (accordionContent) {
@@ -5057,6 +5060,7 @@ function switchTab(tabName) {
       if (tabsContent) {
         const tabPane = document.createElement('div');
         tabPane.className = 'tab-pane active';
+        tabPane.setAttribute('data-accordion', tabName);
         tabPane.innerHTML = accordionContent.innerHTML;
         tabsContent.innerHTML = '';
         tabsContent.appendChild(tabPane);
